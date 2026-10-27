@@ -1,0 +1,1798 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="color-scheme" content="light dark" />
+<link rel="icon" href="data:," />
+<title>Irish National Kendo Championships 2026 · Results</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    color-scheme: light dark;
+    --bg:#f6f3ee; --surface:#fffdf8; --surface2:#efe9df;
+    --ink:#221d16; --muted:#6f6656; --line:#ddd4c3;
+    --accent:#b3352c; --accent-soft:#f7e9e4;
+    --gold:#a87b1f; --gold-soft:#f6ecd4;
+    --shadow:0 10px 30px rgba(34,29,22,.18);
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#15120e; --surface:#201b15; --surface2:#2a241b;
+      --ink:#ede6d6; --muted:#a99d87; --line:#3b3427;
+      --accent:#e0685e; --accent-soft:#3a2320;
+      --gold:#d9ab4a; --gold-soft:#38300f;
+      --shadow:0 10px 30px rgba(0,0,0,.5);
+    }
+  }
+  *{ box-sizing:border-box; }
+  html{ -webkit-text-size-adjust:100%; }
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:"Barlow", system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-size:16px; line-height:1.4;
+  }
+  .cond{ font-family:"Barlow Condensed","Barlow",sans-serif; letter-spacing:.02em; }
+  button{ font:inherit; color:inherit; background:none; border:none; cursor:pointer; }
+  button:focus-visible, a:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
+
+  header.masthead{
+    padding:18px 16px 12px; max-width:1060px; margin:0 auto;
+  }
+  .masthead h1{
+    margin:0; font-size:30px; line-height:1.05; font-weight:700; text-transform:uppercase;
+  }
+  .masthead .dates{ margin:4px 0 0; color:var(--muted); font-weight:600; font-size:15px; }
+  .status{
+    margin:10px 0 0; font-size:13.5px; color:var(--muted); display:flex; align-items:flex-start; gap:7px;
+  }
+  .status .dot{
+    flex:none; width:9px; height:9px; border-radius:50%; background:var(--muted); margin-top:4px;
+  }
+  .status.live .dot{ background:#3d9e4f; box-shadow:0 0 0 3px rgba(61,158,79,.22); }
+  .status.live{ color:var(--ink); font-weight:600; }
+
+  nav.topnav{
+    position:sticky; top:0; z-index:40; background:var(--bg);
+    border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+  }
+  .topnav .inner{
+    max-width:1060px; margin:0 auto; display:flex; padding:0 8px;
+  }
+  .topnav button{
+    flex:1; padding:12px 4px 10px; font-family:"Barlow Condensed",sans-serif;
+    font-size:18px; font-weight:600; text-transform:uppercase; letter-spacing:.04em;
+    color:var(--muted); border-bottom:3px solid transparent;
+  }
+  .topnav button[aria-selected="true"]{ color:var(--ink); border-bottom-color:var(--accent); }
+
+  main{ max-width:1060px; margin:0 auto; padding:16px 16px 48px; }
+  section.view{ display:none; }
+  section.view.active{ display:block; }
+
+  h2.sect{
+    font-family:"Barlow Condensed",sans-serif; font-size:21px; font-weight:700;
+    text-transform:uppercase; letter-spacing:.05em; margin:22px 0 10px;
+  }
+  h2.sect:first-child{ margin-top:2px; }
+
+  /* Up next */
+  .upnext-grid{ display:grid; grid-template-columns:1fr; gap:12px; }
+  @media (min-width:720px){ .upnext-grid{ grid-template-columns:1fr 1fr; } }
+  .un-card{
+    background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:14px 16px;
+  }
+  .un-head{ display:flex; justify-content:space-between; align-items:baseline; gap:8px; }
+  .un-court{ font-family:"Barlow Condensed",sans-serif; font-size:20px; font-weight:700; text-transform:uppercase; }
+  .un-cat{ color:var(--accent); font-weight:700; font-size:13.5px; text-transform:uppercase; letter-spacing:.05em; text-align:right; }
+  .un-next{ margin-top:10px; padding-top:10px; border-top:1px solid var(--line); }
+  .un-next .lab{ font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:var(--muted); }
+  .un-names{ font-family:"Barlow Condensed",sans-serif; font-size:26px; font-weight:600; line-height:1.15; margin-top:2px; }
+  .un-names .vs{ color:var(--muted); font-size:19px; padding:0 2px; }
+  .un-meta{ color:var(--muted); font-size:13.5px; margin-top:2px; }
+  .un-then{ margin-top:10px; }
+  .un-then .lab{ font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:var(--muted); margin-bottom:4px; }
+  .un-then-row{ display:flex; gap:8px; align-items:baseline; padding:3px 0; font-size:15px; }
+  .un-then-row .n{ color:var(--muted); font-weight:700; font-size:13px; flex:none; min-width:30px; }
+  .un-empty{ color:var(--muted); margin-top:10px; }
+
+  /* Chips + segmented */
+  .chips{ display:flex; flex-wrap:wrap; gap:8px; margin:4px 0 12px; }
+  .chip{
+    padding:7px 13px; border-radius:999px; border:1px solid var(--line);
+    background:var(--surface); font-weight:600; font-size:14.5px;
+  }
+  .chip[aria-pressed="true"]{ background:var(--ink); color:var(--bg); border-color:var(--ink); }
+  .seg{
+    display:inline-flex; border:1px solid var(--line); border-radius:8px; overflow:hidden; margin-bottom:14px;
+  }
+  .seg button{ padding:8px 22px; font-weight:700; font-size:15px; background:var(--surface); color:var(--muted); }
+  .seg button[aria-pressed="true"]{ background:var(--accent); color:#fff; }
+
+  /* Match list */
+  h3.group{
+    font-family:"Barlow Condensed",sans-serif; font-size:17px; font-weight:700; text-transform:uppercase;
+    letter-spacing:.06em; color:var(--muted); margin:18px 0 8px;
+  }
+  .match-row{
+    display:flex; width:100%; text-align:left; align-items:center; gap:10px;
+    background:var(--surface); border:1px solid var(--line); border-radius:10px;
+    padding:10px 12px; margin-bottom:8px;
+  }
+  .match-row:active{ background:var(--surface2); }
+  .m-num{
+    flex:none; min-width:40px; text-align:center; font-family:"Barlow Condensed",sans-serif;
+    font-weight:700; font-size:17px; color:var(--muted);
+  }
+  .m-names{ flex:1; min-width:0; }
+  .m-side{ display:flex; align-items:center; gap:8px; padding:2px 0; }
+  .m-side .nm{ font-weight:600; font-size:16.5px; overflow:hidden; text-overflow:ellipsis; }
+  .dot-r, .dot-w{ flex:none; width:11px; height:11px; border-radius:3px; }
+  .dot-r{ background:var(--accent); }
+  .dot-w{ background:#fff; border:1.5px solid var(--muted); }
+  @media (prefers-color-scheme: dark){ .dot-w{ background:#e8e2d2; border-color:#e8e2d2; } }
+  .m-side.tbd .nm{ color:var(--muted); font-weight:500; }
+  .m-tags{ flex:none; display:flex; flex-direction:column; align-items:flex-end; gap:4px; }
+  .tag{
+    font-size:12px; font-weight:700; padding:1px 7px; border-radius:4px;
+    background:var(--surface2); color:var(--muted); white-space:nowrap;
+  }
+  .tag.court{ background:var(--ink); color:var(--bg); }
+  .tag.encho{ background:var(--accent-soft); color:var(--accent); }
+  .tag.status{ text-transform:uppercase; letter-spacing:.05em; }
+  .tag.st-done{ background:var(--ink); color:var(--bg); }
+  .d-statusrow{ margin-bottom:12px; }
+  .d-statusrow .tag.status{ font-size:13.5px; padding:3px 11px; }
+  .chev{ flex:none; color:var(--muted); font-size:20px; line-height:1; }
+  .list-note{ color:var(--muted); font-size:14.5px; padding:6px 2px; }
+
+  /* Schedule */
+  .caveat{
+    background:var(--gold-soft); border:1px solid var(--gold); color:var(--ink);
+    border-radius:10px; padding:12px 14px; font-size:15px; margin-bottom:18px;
+  }
+  .caveat strong{ text-transform:uppercase; letter-spacing:.04em; }
+  .day-card{ background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:6px 16px 10px; margin-bottom:16px; }
+  .day-card h3{
+    font-family:"Barlow Condensed",sans-serif; font-size:20px; font-weight:700;
+    text-transform:uppercase; letter-spacing:.04em; margin:12px 0 6px;
+  }
+  .sched-row{ display:flex; gap:12px; padding:8px 0; border-top:1px solid var(--line); align-items:baseline; }
+  .sched-row:first-of-type{ border-top:none; }
+  .sched-time{ flex:none; width:52px; font-weight:700; font-variant-numeric:tabular-nums; }
+  .sched-event{ flex:1; }
+  .sched-court{ flex:none; }
+
+  /* Trees */
+  .tree-scroll{ overflow-x:auto; -webkit-overflow-scrolling:touch; border:1px solid var(--line); border-radius:10px; background:var(--surface); }
+  .tree-canvas{ position:relative; margin:0 auto; }
+  .t-round-lab{
+    position:absolute; font-family:"Barlow Condensed",sans-serif; font-size:14px; font-weight:700;
+    text-transform:uppercase; letter-spacing:.06em; color:var(--muted); text-align:center;
+  }
+  .tbox{
+    position:absolute; width:128px; background:var(--bg); border:1px solid var(--line);
+    border-radius:7px; padding:5px 8px 6px; overflow:hidden;
+  }
+  .tbox .tn{
+    position:absolute; top:3px; right:7px; font-size:10.5px; font-weight:700; color:var(--muted);
+  }
+  .tbox .ts{ display:flex; align-items:center; gap:6px; padding:2.5px 0; min-height:21px; }
+  .tbox .ts .nm{ font-size:12.5px; font-weight:600; line-height:1.15; }
+  .tbox .ts.tbd .nm{ color:var(--muted); font-weight:500; }
+  .tbox.final-box{ border:2px solid var(--gold); background:var(--gold-soft); }
+  svg.wires{ position:absolute; left:0; top:0; pointer-events:none; }
+  svg.wires path{ fill:none; stroke:var(--muted); stroke-width:1.4; opacity:.65; }
+
+  /* Detail sheet */
+  .sheet-wrap{
+    position:fixed; inset:0; z-index:80; display:none;
+  }
+  .sheet-wrap.open{ display:block; }
+  .sheet-back{ position:absolute; inset:0; background:rgba(10,8,5,.5); }
+  .sheet{
+    position:absolute; left:0; right:0; bottom:0; max-height:86vh; overflow-y:auto;
+    background:var(--surface); border-radius:14px 14px 0 0; padding:18px 18px 28px;
+    box-shadow:var(--shadow);
+  }
+  @media (min-width:720px){
+    .sheet{ left:50%; right:auto; bottom:6vh; transform:translateX(-50%); width:560px; border-radius:14px; }
+  }
+  .sheet h3{
+    margin:0 40px 2px 0; font-family:"Barlow Condensed",sans-serif; font-size:23px; font-weight:700;
+    text-transform:uppercase; letter-spacing:.03em;
+  }
+  .sheet .sub{ color:var(--muted); font-size:14px; margin-bottom:12px; }
+  .sheet-close{
+    position:absolute; top:12px; right:12px; width:36px; height:36px; border-radius:50%;
+    background:var(--surface2); font-size:19px; line-height:1;
+  }
+  .d-vs{ display:flex; flex-direction:column; gap:6px; margin-bottom:14px; }
+  .d-side{
+    display:flex; align-items:center; gap:9px; border:1px solid var(--line); border-radius:8px; padding:9px 12px;
+  }
+  .d-side .nm{ font-weight:700; font-size:18px; }
+  .d-side.tbd .nm{ color:var(--muted); font-weight:500; }
+  dl.d-grid{ display:grid; grid-template-columns:auto 1fr; gap:6px 16px; margin:0 0 6px; }
+  dl.d-grid dt{ color:var(--muted); font-weight:600; font-size:14px; }
+  dl.d-grid dd{ margin:0; font-weight:600; }
+  .d-none{ color:var(--muted); }
+  .bout-block{ border-top:1px solid var(--line); padding:10px 0 4px; }
+  .bout-block h4{
+    margin:0 0 6px; font-family:"Barlow Condensed",sans-serif; font-size:16.5px; font-weight:700;
+    text-transform:uppercase; letter-spacing:.05em;
+  }
+  .bout-head{ display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:6px; min-height:25px; }
+  .bout-head h4{ margin:0; }
+  .bout-block h4 .dai{ color:var(--accent); }
+
+  /* Shiaijo hall screens */
+  main.wide{ max-width:1500px; }
+  @media (max-width:520px){ .topnav button{ font-size:15px; letter-spacing:.02em; padding-left:2px; padding-right:2px; } }
+  .sj-select{ display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:12px; }
+  .sj-select button{
+    padding:16px 10px; border-radius:12px; border:2px solid var(--line); background:var(--surface);
+    font-family:"Barlow Condensed",sans-serif; font-size:30px; font-weight:700; text-transform:uppercase; letter-spacing:.04em; color:var(--muted);
+  }
+  .sj-select button[aria-pressed="true"]{ color:#fff; }
+  .sj-select #sjBtnA[aria-pressed="true"]{ background:#2e7d43; border-color:#2e7d43; }
+  .sj-select #sjBtnB[aria-pressed="true"]{ background:#205f9e; border-color:#205f9e; }
+  .sj-colhead{
+    position:sticky; top:48px; z-index:20; background:var(--bg);
+    display:grid; grid-template-columns:1fr minmax(84px,auto) 1fr; gap:10px;
+    padding:8px 6px; border-bottom:2px solid var(--line);
+    font-family:"Barlow Condensed",sans-serif; font-size:19px; font-weight:700; text-transform:uppercase; letter-spacing:.07em;
+  }
+  .sj-colhead .c{ text-align:center; }
+  .sj-colhead .r{ text-align:right; }
+  .sj-cat-head{
+    font-family:"Barlow Condensed",sans-serif; font-size:34px; font-weight:700; text-transform:uppercase;
+    letter-spacing:.04em; margin:26px 0 6px; scroll-margin-top:110px;
+  }
+  .sj-phase{
+    font-family:"Barlow Condensed",sans-serif; font-size:21px; font-weight:700; text-transform:uppercase;
+    letter-spacing:.06em; color:var(--muted); margin:16px 0 8px;
+  }
+  .sj-match{ background:var(--surface); border:1px solid var(--line); border-radius:12px; overflow:hidden; margin-bottom:14px; }
+  .sj-meta{
+    display:flex; align-items:center; gap:10px; padding:8px 14px; font-weight:600; color:var(--muted); font-size:15.5px;
+  }
+  /* The match's "Completed" marker lives on the meta line itself,
+     pushed to the right end — the same pill format as the
+     individual fights'. The pill is always rendered (visibility
+     hidden until the match completes) so the meta line's height
+     never changes when a match completes. */
+  .sj-meta-done{
+    margin-left:auto; flex:none; font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:.06em;
+    padding:3px 10px; border-radius:4px; background:var(--ink); color:var(--bg); line-height:1.4;
+  }
+  .sj-meta-done.is-off{ visibility:hidden; }
+  .sj-done-slot{
+    min-height:25px; display:flex; align-items:center; justify-content:center; flex:none;
+  }
+  .sj-done-slot .sj-status{
+    flex:none; font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:.06em;
+    padding:3px 10px; border-radius:4px; background:var(--ink); color:var(--bg); line-height:1.4;
+  }
+  .sj-dai{ font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:var(--accent); }
+  .sj-grid{ display:grid; grid-template-columns:1fr minmax(300px,1.35fr) 1fr; align-items:stretch; }
+  .sj-side{ padding:16px 18px 18px; min-width:0; display:flex; align-items:center; }
+  .sj-side.white{ background:#fbfaf5; color:#211d16; }
+  .sj-side.red{ background:#9c2b23; color:#fff; text-align:right; justify-content:flex-end; }
+  .sj-name{ font-family:"Barlow Condensed",sans-serif; font-weight:700; font-size:clamp(25px,4.2vw,44px); line-height:1.05; overflow-wrap:break-word; }
+  .sj-centre{
+    display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px;
+    padding:16px 10px; background:var(--surface2); text-align:center;
+  }
+  .sj-score-row{ display:flex; align-items:center; justify-content:center; gap:20px; width:100%; }
+  .sj-markers{ flex:1 1 0; display:flex; flex-direction:row; align-items:center; gap:16px; min-width:0; }
+  .sj-markers.w{ justify-content:flex-end; text-align:right; }
+  .sj-markers.r{ justify-content:flex-start; text-align:left; }
+  .sj-ippon-row{ display:flex; gap:16px; align-items:center; }
+  .sj-ip{
+    font-family:"Barlow Condensed",sans-serif; font-weight:700; line-height:1;
+    font-size:clamp(25px,4.2vw,44px); letter-spacing:.04em; min-width:.72em; text-align:center;
+  }
+  .sj-ip.empty{ visibility:hidden; }
+  .sj-han-big{
+    font-size:clamp(25px,4.2vw,44px); font-weight:700; line-height:1;
+    display:inline-flex; align-items:center; justify-content:center; flex:none; min-width:1em;
+  }
+  .sj-han-big.empty{ visibility:hidden; }
+  .sj-count{ font-family:"Barlow Condensed",sans-serif; font-weight:700; font-size:clamp(25px,4.2vw,44px); line-height:.95; white-space:nowrap; }
+  /* Encho slot: always rendered directly below the score at a fixed
+     height (empty when the fight is not in encho), so the score row
+     — and with it the player names, hansoku and ippon markers — never
+     moves when the marker appears. The marker itself mirrors the
+     Completed pill, but as a red box. */
+  .sj-encho-slot{
+    min-height:25px; display:flex; align-items:center; justify-content:center; flex:none;
+  }
+  .sj-encho{
+    flex:none; font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:.06em;
+    padding:3px 10px; border-radius:4px; background:#b3352c; color:#fff; line-height:1.4;
+  }
+  .sj-team-head{
+    display:grid; grid-template-columns:1fr auto 1fr; gap:14px; align-items:center;
+    background:var(--ink); color:var(--bg); padding:9px 18px 11px;
+  }
+  .sj-team-name{
+    font-family:"Barlow Condensed",sans-serif; font-weight:700; text-transform:uppercase;
+    font-size:clamp(30px,5vw,56px); line-height:1.02; letter-spacing:.03em; overflow-wrap:break-word;
+  }
+  .sj-team-name.r{ text-align:right; }
+  .sj-team-score{
+    font-family:"Barlow Condensed",sans-serif; font-weight:700; line-height:1;
+    font-size:clamp(25px,4.2vw,44px); color:inherit; white-space:nowrap;
+  }
+  /* Team tally row in the centre of the team header: the ippon tally
+     in the middle — same format as an individual fight's score, in
+     the same colour as the team names (inherited from the header)
+     and at the same font size as an individual fight's score
+     (.sj-count) — with the number of individual fights won inside a
+     circle on each side of it (white team's circle on the left, red
+     team's on the right), also at the individual fights' font size. */
+  .sj-team-tally{ display:flex; align-items:center; justify-content:center; gap:16px; }
+  .sj-win-circle{
+    flex:none; width:clamp(42px,5.5vw,64px); height:clamp(42px,5.5vw,64px); border-radius:50%;
+    display:inline-flex; align-items:center; justify-content:center;
+    font-family:"Barlow Condensed",sans-serif; font-weight:700; line-height:1;
+    font-size:clamp(25px,4.2vw,44px);
+  }
+  .sj-win-circle.w{ background:#fbfaf5; color:#211d16; }
+  .sj-win-circle.r{ background:#9c2b23; color:#fff; }
+  .sj-bout-block{ border-top:2px solid var(--line); }
+  .sj-collapse-btn{
+    flex:none; width:32px; height:32px; display:inline-flex; align-items:center; justify-content:center;
+    border:1px solid var(--line); border-radius:7px; background:var(--surface2); color:var(--ink);
+    font-size:17px; line-height:1; padding:0;
+  }
+  .sj-collapse-btn:active{ background:var(--line); }
+  .sj-match.collapsed .sj-bouts{ display:none; }
+  @media (max-width:560px){
+    .sj-grid{ grid-template-columns:1fr minmax(170px,1.3fr) 1fr; }
+    .sj-side{ padding:12px 10px 14px; }
+    .sj-score-row{ gap:8px; }
+    .sj-centre{ padding:12px 6px; }
+    .sj-team-head{ padding:8px 10px 9px; }
+    .sj-team-tally{ gap:8px; }
+    .sj-win-circle{ width:38px; height:38px; font-size:25px; }
+    .sj-markers{ gap:8px; }
+    .sj-ippon-row{ gap:8px; }
+  }
+  footer.foot{
+    max-width:1060px; margin:0 auto; padding:0 16px 34px; color:var(--muted); font-size:13px;
+  }
+</style>
+</head>
+<body>
+<header class="masthead">
+  <h1 class="cond">Irish National Kendo Championships 2026</h1>
+  <p class="dates">Saturday 31 October – Sunday 1 November 2026</p>
+  <p class="status" id="statusLine"><span class="dot"></span><span id="statusText">Loading results…</span></p>
+</header>
+
+<nav class="topnav" aria-label="Sections">
+  <div class="inner" role="tablist">
+    <button role="tab" id="tab-live" aria-selected="true" data-view="live">Results</button>
+    <button role="tab" id="tab-shiaijo" aria-selected="false" data-view="shiaijo">Shiaijo</button>
+    <button role="tab" id="tab-trees" aria-selected="false" data-view="trees">Tournament Trees</button>
+    <button role="tab" id="tab-schedule" aria-selected="false" data-view="schedule">Schedule</button>
+  </div>
+</nav>
+
+<main>
+  <section class="view active" id="view-live" aria-labelledby="tab-live">
+    <h2 class="sect">Up Next</h2>
+    <div class="upnext-grid">
+      <div class="un-card" id="unA"></div>
+      <div class="un-card" id="unB"></div>
+    </div>
+
+    <h2 class="sect">Matches by Category</h2>
+    <div class="chips" id="catChips" role="group" aria-label="Category"></div>
+    <div id="phaseWrap"><div class="seg" role="group" aria-label="Phase">
+      <button id="segPools" aria-pressed="true">Pools</button>
+      <button id="segKos" aria-pressed="false">KOs</button>
+    </div></div>
+    <div id="matchList"></div>
+  </section>
+
+  <section class="view" id="view-schedule" aria-labelledby="tab-schedule">
+    <div class="caveat"><strong>Provisional schedule.</strong> Times and running order are subject to change depending on how the championships proceed on the day.</div>
+    <div id="scheduleDays"></div>
+  </section>
+
+  <section class="view" id="view-trees" aria-labelledby="tab-trees">
+    <div class="chips" id="treeChips" role="group" aria-label="Category"></div>
+    <div class="tree-scroll" id="treeScroll"><div class="tree-canvas" id="treeCanvas"></div></div>
+  </section>
+
+  <section class="view" id="view-shiaijo" aria-labelledby="tab-shiaijo">
+    <div class="sj-select" role="group" aria-label="Choose shiaijo">
+      <button id="sjBtnA" aria-pressed="true">Shiaijo A</button>
+      <button id="sjBtnB" aria-pressed="false">Shiaijo B</button>
+    </div>
+    <div class="chips" id="sjChips" role="group" aria-label="Jump to category"></div>
+    <div class="sj-colhead" aria-hidden="true"><span>White</span><span class="c">Result</span><span class="r">Red</span></div>
+    <div id="sjList"></div>
+  </section>
+</main>
+
+<footer class="foot">Results are taken from the official scoreboard. If anything here disagrees with the table officials on the day, the officials' record stands.</footer>
+
+<div class="sheet-wrap" id="sheetWrap" aria-hidden="true">
+  <div class="sheet-back" id="sheetBack"></div>
+  <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitle">
+    <button class="sheet-close" id="sheetClose" aria-label="Close">✕</button>
+    <h3 id="sheetTitle">Match</h3>
+    <div class="sub" id="sheetSub"></div>
+    <div id="sheetBody"></div>
+  </div>
+</div>
+
+<script>
+var SNAPSHOT = {"categories":[{"id":"junior-individual","name":"Junior Individual","kind":"standard","noPools":false,"pools":[{"ord":0,"num":1,"pool":1,"s":"A","r":"ANON 09","w":"ANON 33","win":"","done":false,"encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":1,"num":2,"pool":1,"s":"A","r":"ANON 09","w":"ANON 36","win":"","done":false,"encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":2,"num":3,"pool":1,"s":"A","r":"ANON 33","w":"ANON 36","win":"","done":false,"encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":3,"num":4,"pool":2,"s":"A","r":"ANON 21","w":"ANON 61","win":"","done":false,"encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":4,"num":5,"pool":2,"s":"A","r":"ANON 21","w":"ANON 76","win":"","done":false,"encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":5,"num":6,"pool":2,"s":"A","r":"ANON 61","w":"ANON 76","win":"","done":false,"encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""}],"kos":[{"ord":0,"num":1,"round":"SEMI-FINAL","s":"A","r":"Pool 1 #1","w":"Pool 2 #2","win":"","done":false,"encho":false,"slots":[{"t":"seed","n":null,"lab":"Pool 1 #1"},{"t":"seed","n":null,"lab":"Pool 2 #2"}],"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":1,"num":2,"round":"SEMI-FINAL","s":"A","r":"Pool 2 #1","w":"Pool 1 #2","win":"","done":false,"encho":false,"slots":[{"t":"seed","n":null,"lab":"Pool 2 #1"},{"t":"seed","n":null,"lab":"Pool 1 #2"}],"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":2,"num":3,"round":"FINAL","s":"A","r":"TBD","w":"TBD","win":"","done":false,"encho":false,"slots":[{"t":"feeder","n":1,"lab":null},{"t":"feeder","n":2,"lab":null}],"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""}],"tree":[{"ord":0,"num":1,"round":"SEMI-FINAL","s":"A","r":"Pool 1 #1","w":"Pool 2 #2","win":"","done":false,"encho":false,"slots":[{"t":"seed","n":null,"lab":"Pool 1 #1"},{"t":"seed","n":null,"lab":"Pool 2 #2"}],"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":1,"num":2,"round":"SEMI-FINAL","s":"A","r":"Pool 2 #1","w":"Pool 1 #2","win":"","done":false,"encho":false,"slots":[{"t":"seed","n":null,"lab":"Pool 2 #1"},{"t":"seed","n":null,"lab":"Pool 1 #2"}],"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":2,"num":3,"round":"FINAL","s":"A","r":"TBD","w":"TBD","win":"","done":false,"encho":false,"slots":[{"t":"feeder","n":1,"lab":null},{"t":"feeder","n":2,"lab":null}],"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""}]},{"id":"junior-technical","name":"Junior Technical","kind":"tech","noPools":false,"pools":[{"ord":0,"num":1,"pool":1,"s":"B","r":"ANON 44","w":"ANON 45","win":"","done":false,"encho":false,"symbol":"","redFlags":"","whiteFlags":""},{"ord":1,"num":2,"pool":1,"s":"B","r":"ANON 44","w":"ANON 51","win":"","done":false,"encho":false,"symbol":"","redFlags":"","whiteFlags":""},{"ord":2,"num":3,"pool":1,"s":"B","r":"ANON 45","w":"ANON 51","win":"","done":false,"encho":false,"symbol":"","redFlags":"","whiteFlags":""},{"ord":3,"num":4,"pool":2,"s":"B","r":"ANON 01","w":"ANON 62","win":"","done":false,"encho":false,"symbol":"","redFlags":"","whiteFlags":""}],"kos":[{"ord":0,"num":1,"round":"SEMI-FINAL","s":"B","r":"Pool 1 #1","w":"Pool 2 #2","win":"","done":false,"encho":false,"slots":[{"t":"seed","n":null,"lab":"Pool 1 #1"},{"t":"seed","n":null,"lab":"Pool 2 #2"}],"symbol":"","redFlags":"","whiteFlags":""},{"ord":1,"num":2,"round":"SEMI-FINAL","s":"B","r":"Pool 2 #1","w":"Pool 1 #2","win":"","done":false,"encho":false,"slots":[{"t":"seed","n":null,"lab":"Pool 2 #1"},{"t":"seed","n":null,"lab":"Pool 1 #2"}],"symbol":"","redFlags":"","whiteFlags":""},{"ord":2,"num":3,"round":"FINAL","s":"B","r":"TBD","w":"TBD","win":"","done":false,"encho":false,"slots":[{"t":"feeder","n":1,"lab":null},{"t":"feeder","n":2,"lab":null}],"symbol":"","redFlags":"","whiteFlags":""}],"tree":[{"ord":0,"num":1,"round":"SEMI-FINAL","s":"B","r":"Pool 1 #1","w":"Pool 2 #2","win":"","done":false,"encho":false,"slots":[{"t":"seed","n":null,"lab":"Pool 1 #1"},{"t":"seed","n":null,"lab":"Pool 2 #2"}],"symbol":"","redFlags":"","whiteFlags":""},{"ord":1,"num":2,"round":"SEMI-FINAL","s":"B","r":"Pool 2 #1","w":"Pool 1 #2","win":"","done":false,"encho":false,"slots":[{"t":"seed","n":null,"lab":"Pool 2 #1"},{"t":"seed","n":null,"lab":"Pool 1 #2"}],"symbol":"","redFlags":"","whiteFlags":""},{"ord":2,"num":3,"round":"FINAL","s":"B","r":"TBD","w":"TBD","win":"","done":false,"encho":false,"slots":[{"t":"feeder","n":1,"lab":null},{"t":"feeder","n":2,"lab":null}],"symbol":"","redFlags":"","whiteFlags":""}]},{"id":"adult-technical","name":"Adult Technical","kind":"tech","noPools":false,"pools":[{"ord":0,"num":1,"pool":1,"s":"B","r":"ANON 17","w":"ANON 26","win":"","done":false,"encho":false,"symbol":"","redFlags":"","whiteFlags":""},{"ord":1,"num":2,"pool":1,"s":"B","r":"ANON 17","w":"ANON 47","win":"","done":false,"encho":false,"symbol":"","redFlags":"","whiteFlags":""},{"ord":2,"num":3,"pool":1,"s":"B","r":"ANON 26","w":"ANON 47","win":"","done":false,"encho":false,"symbol":"","redFlags":"","whiteFlags":""},{"ord":3,"num":4,"pool":2,"s":"B","r":"ANON 04","w":"ANON 19","win":"","done":false,"encho":false,"symbol":"","redFlags":"","whiteFlags":""},{"ord":4,"num":5,"pool":2,"s":"B","r":"ANON 04","w":"ANON 37","win":"","done":false,"encho":false,"symbol":"","redFlags":"","whiteFlags":""},{"ord":5,"num":6,"pool":2,"s":"B","r":"ANON 19","w":"ANON 37","win":"","done":false,"encho":false,"symbol":"","redFlags":"","whiteFlags":""},{"ord":6,"num":7,"pool":3,"s":"B","r":"ANON 12","w":"ANON 41","win":"","done":false,"encho":false,"symbol":"","redFlags":"","whiteFlags":""},{"ord":7,"num":8,"pool":3,"s":"B","r":"ANON 12","w":"ANON 49","win":"","done":false,"encho":false,"symbol":"","redFlags":"","whiteFlags":""},{"ord":8,"num":9,"pool":3,"s":"B","r":"ANON 41","w":"ANON 49","win":"","done":false,"encho":false,"symbol":"","redFlags":"","whiteFlags":""},{"ord":9,"num":10,"pool":4,"s":"B","r":"ANON 02","w":"ANON 06","win":"","done":false,"encho":false,"symbol":"","redFlags":"","whiteFlags":""},{"ord":10,"num":11,"pool":4,"s":"B","r":"ANON 02","w":"ANON 08","win":"","done":false,"encho":false,"symbol":"","redFlags":"","whiteFlags":""},{"ord":11,"num":12,"pool":4,"s":"B","r":"ANON 06","w":"ANON 08","win":"","done":false,"encho":false,"symbol":"","redFlags":"","whiteFlags":""}],"kos":[{"ord":0,"num":1,"round":"FIRST ROUND","s":"B","r":"Pool 1 #1","w":"Pool 4 #2","win":"","done":false,"encho":false,"slots":[{"t":"seed","n":null,"lab":"Pool 1 #1"},{"t":"seed","n":null,"lab":"Pool 4 #2"}],"symbol":"","redFlags":"","whiteFlags":""},{"ord":1,"num":2,"round":"FIRST ROUND","s":"B","r":"Pool 2 #1","w":"Pool 3 #2","win":"","done":false,"encho":false,"slots":[{"t":"seed","n":null,"lab":"Pool 2 #1"},{"t":"seed","n":null,"lab":"Pool 3 #2"}],"symbol":"","redFlags":"","whiteFlags":""},{"ord":2,"num":3,"round":"FIRST ROUND","s":"B","r":"Pool 3 #1","w":"Pool 2 #2","win":"","done":false,"encho":false,"slots":[{"t":"seed","n":null,"lab":"Pool 3 #1"},{"t":"seed","n":null,"lab":"Pool 2 #2"}],"symbol":"","redFlags":"","whiteFlags":""},{"ord":3,"num":4,"round":"FIRST ROUND","s":"B","r":"Pool 4 #1","w":"Pool 1 #2","win":"","done":false,"encho":false,"slots":[{"t":"seed","n":null,"lab":"Pool 4 #1"},{"t":"seed","n":null,"lab":"Pool 1 #2"}],"symbol":"","redFlags":"","whiteFlags":""},{"ord":4,"num":5,"round":"SEMI-FINAL","s":"B","r":"TBD","w":"TBD","win":"","done":false,"encho":false,"slots":[{"t":"feeder","n":1,"lab":null},{"t":"feeder","n":2,"lab":null}],"symbol":"","redFlags":"","whiteFlags":""},{"ord":5,"num":6,"round":"SEMI-FINAL","s":"B","r":"TBD","w":"TBD","win":"","done":false,"encho":false,"slots":[{"t":"feeder","n":3,"lab":null},{"t":"feeder","n":4,"lab":null}],"symbol":"","redFlags":"","whiteFlags":""},{"ord":6,"num":7,"round":"FINAL","s":"B","r":"TBD","w":"TBD","win":"","done":false,"encho":false,"slots":[{"t":"feeder","n":5,"lab":null},{"t":"feeder","n":6,"lab":null}],"symbol":"","redFlags":"","whiteFlags":""}],"tree":[{"ord":0,"num":1,"round":"FIRST ROUND","s":"B","r":"Pool 1 #1","w":"Pool 4 #2","win":"","done":false,"encho":false,"slots":[{"t":"seed","n":null,"lab":"Pool 1 #1"},{"t":"seed","n":null,"lab":"Pool 4 #2"}],"symbol":"","redFlags":"","whiteFlags":""},{"ord":1,"num":2,"round":"FIRST ROUND","s":"B","r":"Pool 2 #1","w":"Pool 3 #2","win":"","done":false,"encho":false,"slots":[{"t":"seed","n":null,"lab":"Pool 2 #1"},{"t":"seed","n":null,"lab":"Pool 3 #2"}],"symbol":"","redFlags":"","whiteFlags":""},{"ord":2,"num":3,"round":"FIRST ROUND","s":"B","r":"Pool 3 #1","w":"Pool 2 #2","win":"","done":false,"encho":false,"slots":[{"t":"seed","n":null,"lab":"Pool 3 #1"},{"t":"seed","n":null,"lab":"Pool 2 #2"}],"symbol":"","redFlags":"","whiteFlags":""},{"ord":3,"num":4,"round":"FIRST ROUND","s":"B","r":"Pool 4 #1","w":"Pool 1 #2","win":"","done":false,"encho":false,"slots":[{"t":"seed","n":null,"lab":"Pool 4 #1"},{"t":"seed","n":null,"lab":"Pool 1 #2"}],"symbol":"","redFlags":"","whiteFlags":""},{"ord":4,"num":5,"round":"SEMI-FINAL","s":"B","r":"TBD","w":"TBD","win":"","done":false,"encho":false,"slots":[{"t":"feeder","n":1,"lab":null},{"t":"feeder","n":2,"lab":null}],"symbol":"","redFlags":"","whiteFlags":""},{"ord":5,"num":6,"round":"SEMI-FINAL","s":"B","r":"TBD","w":"TBD","win":"","done":false,"encho":false,"slots":[{"t":"feeder","n":3,"lab":null},{"t":"feeder","n":4,"lab":null}],"symbol":"","redFlags":"","whiteFlags":""},{"ord":6,"num":7,"round":"FINAL","s":"B","r":"TBD","w":"TBD","win":"","done":false,"encho":false,"slots":[{"t":"feeder","n":5,"lab":null},{"t":"feeder","n":6,"lab":null}],"symbol":"","redFlags":"","whiteFlags":""}]},{"id":"junior-teams","name":"Junior Teams","kind":"team","noPools":true,"pools":[],"kos":[{"ord":0,"num":null,"round":"FINAL","s":"A","r":"JUNIORS 1","w":"JUNIORS 2","win":"","done":false,"encho":false,"slots":[{"t":"name","n":null,"lab":"JUNIORS 1"},{"t":"name","n":null,"lab":"JUNIORS 2"}],"bouts":[{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""}]}],"tree":[{"ord":0,"num":null,"round":"FINAL","s":"A","r":"JUNIORS 1","w":"JUNIORS 2","win":"","done":false,"encho":false,"slots":[{"t":"name","n":null,"lab":"JUNIORS 1"},{"t":"name","n":null,"lab":"JUNIORS 2"}],"bouts":[{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""}]}]},{"id":"women","name":"Women","kind":"standard","noPools":false,"pools":[{"ord":0,"num":1,"pool":1,"s":"B","r":"ANON 10","w":"ANON 14","win":"","done":false,"encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":1,"num":2,"pool":1,"s":"B","r":"ANON 10","w":"ANON 77","win":"","done":false,"encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":2,"num":3,"pool":1,"s":"B","r":"ANON 14","w":"ANON 77","win":"","done":false,"encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":3,"num":4,"pool":2,"s":"B","r":"ANON 50","w":"ANON 63","win":"","done":false,"encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":4,"num":5,"pool":2,"s":"B","r":"ANON 50","w":"ANON 65","win":"","done":false,"encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":5,"num":6,"pool":2,"s":"B","r":"ANON 63","w":"ANON 65","win":"","done":false,"encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":6,"num":7,"pool":3,"s":"B","r":"ANON 15","w":"ANON 64","win":"","done":false,"encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":7,"num":8,"pool":4,"s":"B","r":"ANON 05","w":"ANON 70","win":"","done":false,"encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""}],"kos":[{"ord":0,"num":1,"round":"FIRST ROUND","s":"B","r":"Pool 1 #1","w":"Pool 4 #2","win":"","done":false,"encho":false,"slots":[{"t":"seed","n":null,"lab":"Pool 1 #1"},{"t":"seed","n":null,"lab":"Pool 4 #2"}],"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":1,"num":2,"round":"FIRST ROUND","s":"B","r":"Pool 2 #1","w":"Pool 3 #2","win":"","done":false,"encho":false,"slots":[{"t":"seed","n":null,"lab":"Pool 2 #1"},{"t":"seed","n":null,"lab":"Pool 3 #2"}],"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":2,"num":3,"round":"FIRST ROUND","s":"B","r":"Pool 3 #1","w":"Pool 2 #2","win":"","done":false,"encho":false,"slots":[{"t":"seed","n":null,"lab":"Pool 3 #1"},{"t":"seed","n":null,"lab":"Pool 2 #2"}],"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":3,"num":4,"round":"FIRST ROUND","s":"B","r":"Pool 4 #1","w":"Pool 1 #2","win":"","done":false,"encho":false,"slots":[{"t":"seed","n":null,"lab":"Pool 4 #1"},{"t":"seed","n":null,"lab":"Pool 1 #2"}],"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":4,"num":5,"round":"SEMI-FINAL","s":"B","r":"TBD","w":"TBD","win":"","done":false,"encho":false,"slots":[{"t":"feeder","n":1,"lab":null},{"t":"feeder","n":2,"lab":null}],"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":5,"num":6,"round":"SEMI-FINAL","s":"B","r":"TBD","w":"TBD","win":"","done":false,"encho":false,"slots":[{"t":"feeder","n":3,"lab":null},{"t":"feeder","n":4,"lab":null}],"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":6,"num":7,"round":"FINAL","s":"B","r":"TBD","w":"TBD","win":"","done":false,"encho":false,"slots":[{"t":"feeder","n":5,"lab":null},{"t":"feeder","n":6,"lab":null}],"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""}],"tree":[{"ord":0,"num":1,"round":"FIRST ROUND","s":"B","r":"Pool 1 #1","w":"Pool 4 #2","win":"","done":false,"encho":false,"slots":[{"t":"seed","n":null,"lab":"Pool 1 #1"},{"t":"seed","n":null,"lab":"Pool 4 #2"}],"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":1,"num":2,"round":"FIRST ROUND","s":"B","r":"Pool 2 #1","w":"Pool 3 #2","win":"","done":false,"encho":false,"slots":[{"t":"seed","n":null,"lab":"Pool 2 #1"},{"t":"seed","n":null,"lab":"Pool 3 #2"}],"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":2,"num":3,"round":"FIRST ROUND","s":"B","r":"Pool 3 #1","w":"Pool 2 #2","win":"","done":false,"encho":false,"slots":[{"t":"seed","n":null,"lab":"Pool 3 #1"},{"t":"seed","n":null,"lab":"Pool 2 #2"}],"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":3,"num":4,"round":"FIRST ROUND","s":"B","r":"Pool 4 #1","w":"Pool 1 #2","win":"","done":false,"encho":false,"slots":[{"t":"seed","n":null,"lab":"Pool 4 #1"},{"t":"seed","n":null,"lab":"Pool 1 #2"}],"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":4,"num":5,"round":"SEMI-FINAL","s":"B","r":"TBD","w":"TBD","win":"","done":false,"encho":false,"slots":[{"t":"feeder","n":1,"lab":null},{"t":"feeder","n":2,"lab":null}],"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":5,"num":6,"round":"SEMI-FINAL","s":"B","r":"TBD","w":"TBD","win":"","done":false,"encho":false,"slots":[{"t":"feeder","n":3,"lab":null},{"t":"feeder","n":4,"lab":null}],"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":6,"num":7,"round":"FINAL","s":"B","r":"TBD","w":"TBD","win":"","done":false,"encho":false,"slots":[{"t":"feeder","n":5,"lab":null},{"t":"feeder","n":6,"lab":null}],"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""}]},{"id":"open","name":"Open","kind":"standard","noPools":false,"pools":[{"ord":0,"num":1,"pool":1,"s":"A","r":"ANON 23","w":"ANON 42","win":"ANON 23","done":true,"encho":false,"redIppon":["M","K"],"whiteIppon":["",""],"redHansoku":"🔺","whiteHansoku":"","symbol":""},{"ord":1,"num":2,"pool":1,"s":"A","r":"ANON 23","w":"ANON 65","win":"ANON 65","done":true,"encho":false,"redIppon":["",""],"whiteIppon":["M",""],"redHansoku":"","whiteHansoku":"🔺","symbol":""},{"ord":2,"num":3,"pool":1,"s":"A","r":"ANON 42","w":"ANON 65","win":"ANON 42","done":true,"encho":false,"redIppon":["","K"],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":3,"num":4,"pool":2,"s":"A","r":"ANON 39","w":"ANON 54","win":"","done":false,"encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":4,"num":5,"pool":2,"s":"A","r":"ANON 39","w":"ANON 72","win":"","done":false,"encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":5,"num":6,"pool":2,"s":"A","r":"ANON 54","w":"ANON 72","win":"","done":false,"encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":6,"num":7,"pool":3,"s":"A","r":"ANON 66","w":"ANON 67","win":"","done":false,"encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":7,"num":8,"pool":3,"s":"A","r":"ANON 66","w":"ANON 69","win":"","done":false,"encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":8,"num":9,"pool":3,"s":"A","r":"ANON 67","w":"ANON 69","win":"","done":false,"encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":9,"num":10,"pool":4,"s":"A","r":"ANON 20","w":"ANON 68","win":"","done":false,"encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":10,"num":11,"pool":4,"s":"A","r":"ANON 20","w":"ANON 71","win":"","done":false,"encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":11,"num":12,"pool":4,"s":"A","r":"ANON 68","w":"ANON 71","win":"","done":false,"encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":12,"num":13,"pool":5,"s":"A","r":"ANON 15","w":"ANON 32","win":"","done":false,"encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":13,"num":14,"pool":5,"s":"A","r":"ANON 15","w":"ANON 74","win":"","done":false,"encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":14,"num":15,"pool":5,"s":"A","r":"ANON 32","w":"ANON 74","win":"","done":false,"encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":15,"num":16,"pool":6,"s":"A","r":"ANON 11","w":"ANON 40","win":"","done":false,"encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":16,"num":17,"pool":6,"s":"A","r":"ANON 11","w":"ANON 56","win":"","done":false,"encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":17,"num":18,"pool":6,"s":"A","r":"ANON 40","w":"ANON 56","win":"","done":false,"encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":18,"num":19,"pool":7,"s":"A","r":"ANON 43","w":"ANON 64","win":"","done":false,"encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":19,"num":20,"pool":7,"s":"A","r":"ANON 43","w":"ANON 77","win":"","done":false,"encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":20,"num":21,"pool":7,"s":"A","r":"ANON 64","w":"ANON 77","win":"","done":false,"encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":21,"num":22,"pool":8,"s":"A","r":"ANON 10","w":"ANON 18","win":"","done":false,"encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":22,"num":23,"pool":8,"s":"A","r":"ANON 10","w":"ANON 73","win":"","done":false,"encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":23,"num":24,"pool":8,"s":"A","r":"ANON 18","w":"ANON 73","win":"","done":false,"encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":24,"num":25,"pool":9,"s":"B","r":"ANON 24","w":"ANON 28","win":"","done":false,"encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":25,"num":26,"pool":9,"s":"B","r":"ANON 24","w":"ANON 59","win":"","done":false,"encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":26,"num":27,"pool":9,"s":"B","r":"ANON 28","w":"ANON 59","win":"","done":false,"encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":27,"num":28,"pool":10,"s":"B","r":"ANON 27","w":"ANON 29","win":"","done":false,"encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":28,"num":29,"pool":10,"s":"B","r":"ANON 27","w":"ANON 30","win":"","done":false,"encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":29,"num":30,"pool":10,"s":"B","r":"ANON 29","w":"ANON 30","win":"","done":false,"encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":30,"num":31,"pool":11,"s":"B","r":"ANON 25","w":"ANON 58","win":"","done":false,"encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":31,"num":32,"pool":11,"s":"B","r":"ANON 25","w":"ANON 60","win":"","done":false,"encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":32,"num":33,"pool":11,"s":"B","r":"ANON 58","w":"ANON 60","win":"","done":false,"encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":33,"num":34,"pool":12,"s":"B","r":"ANON 34","w":"ANON 48","win":"","done":false,"encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":34,"num":35,"pool":12,"s":"B","r":"ANON 34","w":"ANON 63","win":"","done":false,"encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":35,"num":36,"pool":12,"s":"B","r":"ANON 48","w":"ANON 63","win":"","done":false,"encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":36,"num":37,"pool":14,"s":"B","r":"ANON 14","w":"ANON 16","win":"","done":false,"encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":37,"num":38,"pool":14,"s":"B","r":"ANON 14","w":"ANON 22","win":"","done":false,"encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":38,"num":39,"pool":14,"s":"B","r":"ANON 16","w":"ANON 22","win":"","done":false,"encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":39,"num":40,"pool":13,"s":"B","r":"ANON 05","w":"ANON 38","win":"","done":false,"encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":40,"num":41,"pool":13,"s":"B","r":"ANON 05","w":"ANON 55","win":"","done":false,"encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":41,"num":42,"pool":13,"s":"B","r":"ANON 38","w":"ANON 55","win":"","done":false,"encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":42,"num":43,"pool":15,"s":"B","r":"ANON 52","w":"ANON 57","win":"","done":false,"encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":43,"num":44,"pool":15,"s":"B","r":"ANON 52","w":"ANON 70","win":"","done":false,"encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":44,"num":45,"pool":15,"s":"B","r":"ANON 57","w":"ANON 70","win":"","done":false,"encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":45,"num":46,"pool":16,"s":"B","r":"ANON 03","w":"ANON 35","win":"","done":false,"encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":46,"num":47,"pool":16,"s":"B","r":"ANON 03","w":"ANON 50","win":"","done":false,"encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":47,"num":48,"pool":16,"s":"B","r":"ANON 35","w":"ANON 50","win":"","done":false,"encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":48,"num":49,"pool":17,"s":"B","r":"ANON 46","w":"ANON 53","win":"","done":false,"encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""}],"kos":[{"ord":0,"num":1,"round":"FIRST ROUND","s":"A","r":"Pool 1 #1","w":"Pool 17 #2","win":"","done":false,"encho":false,"slots":[{"t":"seed","n":null,"lab":"Pool 1 #1"},{"t":"seed","n":null,"lab":"Pool 17 #2"}],"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":1,"num":2,"round":"FIRST ROUND","s":"B","r":"Pool 17 #1","w":"Pool 1 #2","win":"","done":false,"encho":false,"slots":[{"t":"seed","n":null,"lab":"Pool 17 #1"},{"t":"seed","n":null,"lab":"Pool 1 #2"}],"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":2,"num":3,"round":"SECOND ROUND","s":"A","r":"Pool 2 #1","w":"Pool 15 #2","win":"","done":false,"encho":false,"slots":[{"t":"seed","n":null,"lab":"Pool 2 #1"},{"t":"seed","n":null,"lab":"Pool 15 #2"}],"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":3,"num":4,"round":"SECOND ROUND","s":"A","r":"Pool 3 #1","w":"Pool 14 #2","win":"","done":false,"encho":false,"slots":[{"t":"seed","n":null,"lab":"Pool 3 #1"},{"t":"seed","n":null,"lab":"Pool 14 #2"}],"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":4,"num":5,"round":"SECOND ROUND","s":"A","r":"Pool 4 #1","w":"Pool 13 #2","win":"","done":false,"encho":false,"slots":[{"t":"seed","n":null,"lab":"Pool 4 #1"},{"t":"seed","n":null,"lab":"Pool 13 #2"}],"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":5,"num":6,"round":"SECOND ROUND","s":"A","r":"Pool 5 #1","w":"Pool 12 #2","win":"","done":false,"encho":false,"slots":[{"t":"seed","n":null,"lab":"Pool 5 #1"},{"t":"seed","n":null,"lab":"Pool 12 #2"}],"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":6,"num":7,"round":"SECOND ROUND","s":"A","r":"Pool 6 #1","w":"Pool 11 #2","win":"","done":false,"encho":false,"slots":[{"t":"seed","n":null,"lab":"Pool 6 #1"},{"t":"seed","n":null,"lab":"Pool 11 #2"}],"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":7,"num":8,"round":"SECOND ROUND","s":"A","r":"Pool 7 #1","w":"Pool 10 #2","win":"","done":false,"encho":false,"slots":[{"t":"seed","n":null,"lab":"Pool 7 #1"},{"t":"seed","n":null,"lab":"Pool 10 #2"}],"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":8,"num":9,"round":"SECOND ROUND","s":"A","r":"Pool 8 #1","w":"Pool 9 #2","win":"","done":false,"encho":false,"slots":[{"t":"seed","n":null,"lab":"Pool 8 #1"},{"t":"seed","n":null,"lab":"Pool 9 #2"}],"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":9,"num":10,"round":"SECOND ROUND","s":"B","r":"Pool 10 #1","w":"Pool 8 #2","win":"","done":false,"encho":false,"slots":[{"t":"seed","n":null,"lab":"Pool 10 #1"},{"t":"seed","n":null,"lab":"Pool 8 #2"}],"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":10,"num":11,"round":"SECOND ROUND","s":"B","r":"Pool 11 #1","w":"Pool 7 #2","win":"","done":false,"encho":false,"slots":[{"t":"seed","n":null,"lab":"Pool 11 #1"},{"t":"seed","n":null,"lab":"Pool 7 #2"}],"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":11,"num":12,"round":"SECOND ROUND","s":"B","r":"Pool 12 #1","w":"Pool 6 #2","win":"","done":false,"encho":false,"slots":[{"t":"seed","n":null,"lab":"Pool 12 #1"},{"t":"seed","n":null,"lab":"Pool 6 #2"}],"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":12,"num":13,"round":"SECOND ROUND","s":"B","r":"Pool 13 #1","w":"Pool 5 #2","win":"","done":false,"encho":false,"slots":[{"t":"seed","n":null,"lab":"Pool 13 #1"},{"t":"seed","n":null,"lab":"Pool 5 #2"}],"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":13,"num":14,"round":"SECOND ROUND","s":"B","r":"Pool 14 #1","w":"Pool 4 #2","win":"","done":false,"encho":false,"slots":[{"t":"seed","n":null,"lab":"Pool 14 #1"},{"t":"seed","n":null,"lab":"Pool 4 #2"}],"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":14,"num":15,"round":"SECOND ROUND","s":"B","r":"Pool 15 #1","w":"Pool 3 #2","win":"","done":false,"encho":false,"slots":[{"t":"seed","n":null,"lab":"Pool 15 #1"},{"t":"seed","n":null,"lab":"Pool 3 #2"}],"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":15,"num":16,"round":"SECOND ROUND","s":"B","r":"Pool 16 #1","w":"Pool 2 #2","win":"","done":false,"encho":false,"slots":[{"t":"seed","n":null,"lab":"Pool 16 #1"},{"t":"seed","n":null,"lab":"Pool 2 #2"}],"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":16,"num":17,"round":"SECOND ROUND","s":"A","r":"TBD","w":"Pool 16 #2","win":"","done":false,"encho":false,"slots":[{"t":"feeder","n":1,"lab":null},{"t":"seed","n":null,"lab":"Pool 16 #2"}],"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":17,"num":18,"round":"SECOND ROUND","s":"B","r":"Pool 9 #1","w":"TBD","win":"","done":false,"encho":false,"slots":[{"t":"seed","n":null,"lab":"Pool 9 #1"},{"t":"feeder","n":2,"lab":null}],"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":18,"num":19,"round":"THIRD ROUND","s":"A","r":"TBD","w":"TBD","win":"","done":false,"encho":false,"slots":[{"t":"feeder","n":17,"lab":null},{"t":"feeder","n":3,"lab":null}],"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":19,"num":20,"round":"THIRD ROUND","s":"A","r":"TBD","w":"TBD","win":"","done":false,"encho":false,"slots":[{"t":"feeder","n":4,"lab":null},{"t":"feeder","n":5,"lab":null}],"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":20,"num":21,"round":"THIRD ROUND","s":"A","r":"TBD","w":"TBD","win":"","done":false,"encho":false,"slots":[{"t":"feeder","n":6,"lab":null},{"t":"feeder","n":7,"lab":null}],"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":21,"num":22,"round":"THIRD ROUND","s":"A","r":"TBD","w":"TBD","win":"","done":false,"encho":false,"slots":[{"t":"feeder","n":8,"lab":null},{"t":"feeder","n":9,"lab":null}],"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":22,"num":23,"round":"THIRD ROUND","s":"B","r":"TBD","w":"TBD","win":"","done":false,"encho":false,"slots":[{"t":"feeder","n":18,"lab":null},{"t":"feeder","n":10,"lab":null}],"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":23,"num":24,"round":"THIRD ROUND","s":"B","r":"TBD","w":"TBD","win":"","done":false,"encho":false,"slots":[{"t":"feeder","n":11,"lab":null},{"t":"feeder","n":12,"lab":null}],"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":24,"num":25,"round":"THIRD ROUND","s":"B","r":"TBD","w":"TBD","win":"","done":false,"encho":false,"slots":[{"t":"feeder","n":13,"lab":null},{"t":"feeder","n":14,"lab":null}],"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":25,"num":26,"round":"THIRD ROUND","s":"B","r":"TBD","w":"TBD","win":"","done":false,"encho":false,"slots":[{"t":"feeder","n":15,"lab":null},{"t":"feeder","n":16,"lab":null}],"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":26,"num":27,"round":"QUARTER-FINAL","s":"A","r":"TBD","w":"TBD","win":"","done":false,"encho":false,"slots":[{"t":"feeder","n":19,"lab":null},{"t":"feeder","n":20,"lab":null}],"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":27,"num":28,"round":"QUARTER-FINAL","s":"A","r":"TBD","w":"TBD","win":"","done":false,"encho":false,"slots":[{"t":"feeder","n":21,"lab":null},{"t":"feeder","n":22,"lab":null}],"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":28,"num":29,"round":"QUARTER-FINAL","s":"B","r":"TBD","w":"TBD","win":"","done":false,"encho":false,"slots":[{"t":"feeder","n":23,"lab":null},{"t":"feeder","n":24,"lab":null}],"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":29,"num":30,"round":"QUARTER-FINAL","s":"B","r":"TBD","w":"TBD","win":"","done":false,"encho":false,"slots":[{"t":"feeder","n":25,"lab":null},{"t":"feeder","n":26,"lab":null}],"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":30,"num":31,"round":"SEMI-FINAL","s":"A","r":"TBD","w":"TBD","win":"","done":false,"encho":false,"slots":[{"t":"feeder","n":27,"lab":null},{"t":"feeder","n":28,"lab":null}],"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":31,"num":32,"round":"SEMI-FINAL","s":"B","r":"TBD","w":"TBD","win":"","done":false,"encho":false,"slots":[{"t":"feeder","n":29,"lab":null},{"t":"feeder","n":30,"lab":null}],"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":32,"num":33,"round":"FINAL","s":"A","r":"TBD","w":"TBD","win":"","done":false,"encho":false,"slots":[{"t":"feeder","n":31,"lab":null},{"t":"feeder","n":32,"lab":null}],"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""}],"tree":[{"ord":0,"num":1,"round":"FIRST ROUND","s":"A","r":"Pool 1 #1","w":"Pool 17 #2","win":"","done":false,"encho":false,"slots":[{"t":"seed","n":null,"lab":"Pool 1 #1"},{"t":"seed","n":null,"lab":"Pool 17 #2"}],"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":1,"num":2,"round":"FIRST ROUND","s":"B","r":"Pool 17 #1","w":"Pool 1 #2","win":"","done":false,"encho":false,"slots":[{"t":"seed","n":null,"lab":"Pool 17 #1"},{"t":"seed","n":null,"lab":"Pool 1 #2"}],"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":2,"num":3,"round":"SECOND ROUND","s":"A","r":"Pool 2 #1","w":"Pool 15 #2","win":"","done":false,"encho":false,"slots":[{"t":"seed","n":null,"lab":"Pool 2 #1"},{"t":"seed","n":null,"lab":"Pool 15 #2"}],"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":3,"num":4,"round":"SECOND ROUND","s":"A","r":"Pool 3 #1","w":"Pool 14 #2","win":"","done":false,"encho":false,"slots":[{"t":"seed","n":null,"lab":"Pool 3 #1"},{"t":"seed","n":null,"lab":"Pool 14 #2"}],"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":4,"num":5,"round":"SECOND ROUND","s":"A","r":"Pool 4 #1","w":"Pool 13 #2","win":"","done":false,"encho":false,"slots":[{"t":"seed","n":null,"lab":"Pool 4 #1"},{"t":"seed","n":null,"lab":"Pool 13 #2"}],"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":5,"num":6,"round":"SECOND ROUND","s":"A","r":"Pool 5 #1","w":"Pool 12 #2","win":"","done":false,"encho":false,"slots":[{"t":"seed","n":null,"lab":"Pool 5 #1"},{"t":"seed","n":null,"lab":"Pool 12 #2"}],"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":6,"num":7,"round":"SECOND ROUND","s":"A","r":"Pool 6 #1","w":"Pool 11 #2","win":"","done":false,"encho":false,"slots":[{"t":"seed","n":null,"lab":"Pool 6 #1"},{"t":"seed","n":null,"lab":"Pool 11 #2"}],"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":7,"num":8,"round":"SECOND ROUND","s":"A","r":"Pool 7 #1","w":"Pool 10 #2","win":"","done":false,"encho":false,"slots":[{"t":"seed","n":null,"lab":"Pool 7 #1"},{"t":"seed","n":null,"lab":"Pool 10 #2"}],"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":8,"num":9,"round":"SECOND ROUND","s":"A","r":"Pool 8 #1","w":"Pool 9 #2","win":"","done":false,"encho":false,"slots":[{"t":"seed","n":null,"lab":"Pool 8 #1"},{"t":"seed","n":null,"lab":"Pool 9 #2"}],"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":9,"num":10,"round":"SECOND ROUND","s":"B","r":"Pool 10 #1","w":"Pool 8 #2","win":"","done":false,"encho":false,"slots":[{"t":"seed","n":null,"lab":"Pool 10 #1"},{"t":"seed","n":null,"lab":"Pool 8 #2"}],"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":10,"num":11,"round":"SECOND ROUND","s":"B","r":"Pool 11 #1","w":"Pool 7 #2","win":"","done":false,"encho":false,"slots":[{"t":"seed","n":null,"lab":"Pool 11 #1"},{"t":"seed","n":null,"lab":"Pool 7 #2"}],"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":11,"num":12,"round":"SECOND ROUND","s":"B","r":"Pool 12 #1","w":"Pool 6 #2","win":"","done":false,"encho":false,"slots":[{"t":"seed","n":null,"lab":"Pool 12 #1"},{"t":"seed","n":null,"lab":"Pool 6 #2"}],"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":12,"num":13,"round":"SECOND ROUND","s":"B","r":"Pool 13 #1","w":"Pool 5 #2","win":"","done":false,"encho":false,"slots":[{"t":"seed","n":null,"lab":"Pool 13 #1"},{"t":"seed","n":null,"lab":"Pool 5 #2"}],"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":13,"num":14,"round":"SECOND ROUND","s":"B","r":"Pool 14 #1","w":"Pool 4 #2","win":"","done":false,"encho":false,"slots":[{"t":"seed","n":null,"lab":"Pool 14 #1"},{"t":"seed","n":null,"lab":"Pool 4 #2"}],"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":14,"num":15,"round":"SECOND ROUND","s":"B","r":"Pool 15 #1","w":"Pool 3 #2","win":"","done":false,"encho":false,"slots":[{"t":"seed","n":null,"lab":"Pool 15 #1"},{"t":"seed","n":null,"lab":"Pool 3 #2"}],"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":15,"num":16,"round":"SECOND ROUND","s":"B","r":"Pool 16 #1","w":"Pool 2 #2","win":"","done":false,"encho":false,"slots":[{"t":"seed","n":null,"lab":"Pool 16 #1"},{"t":"seed","n":null,"lab":"Pool 2 #2"}],"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":16,"num":17,"round":"SECOND ROUND","s":"A","r":"TBD","w":"Pool 16 #2","win":"","done":false,"encho":false,"slots":[{"t":"feeder","n":1,"lab":null},{"t":"seed","n":null,"lab":"Pool 16 #2"}],"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":17,"num":18,"round":"SECOND ROUND","s":"B","r":"Pool 9 #1","w":"TBD","win":"","done":false,"encho":false,"slots":[{"t":"seed","n":null,"lab":"Pool 9 #1"},{"t":"feeder","n":2,"lab":null}],"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":18,"num":19,"round":"THIRD ROUND","s":"A","r":"TBD","w":"TBD","win":"","done":false,"encho":false,"slots":[{"t":"feeder","n":17,"lab":null},{"t":"feeder","n":3,"lab":null}],"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":19,"num":20,"round":"THIRD ROUND","s":"A","r":"TBD","w":"TBD","win":"","done":false,"encho":false,"slots":[{"t":"feeder","n":4,"lab":null},{"t":"feeder","n":5,"lab":null}],"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":20,"num":21,"round":"THIRD ROUND","s":"A","r":"TBD","w":"TBD","win":"","done":false,"encho":false,"slots":[{"t":"feeder","n":6,"lab":null},{"t":"feeder","n":7,"lab":null}],"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":21,"num":22,"round":"THIRD ROUND","s":"A","r":"TBD","w":"TBD","win":"","done":false,"encho":false,"slots":[{"t":"feeder","n":8,"lab":null},{"t":"feeder","n":9,"lab":null}],"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":22,"num":23,"round":"THIRD ROUND","s":"B","r":"TBD","w":"TBD","win":"","done":false,"encho":false,"slots":[{"t":"feeder","n":18,"lab":null},{"t":"feeder","n":10,"lab":null}],"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":23,"num":24,"round":"THIRD ROUND","s":"B","r":"TBD","w":"TBD","win":"","done":false,"encho":false,"slots":[{"t":"feeder","n":11,"lab":null},{"t":"feeder","n":12,"lab":null}],"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":24,"num":25,"round":"THIRD ROUND","s":"B","r":"TBD","w":"TBD","win":"","done":false,"encho":false,"slots":[{"t":"feeder","n":13,"lab":null},{"t":"feeder","n":14,"lab":null}],"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":25,"num":26,"round":"THIRD ROUND","s":"B","r":"TBD","w":"TBD","win":"","done":false,"encho":false,"slots":[{"t":"feeder","n":15,"lab":null},{"t":"feeder","n":16,"lab":null}],"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":26,"num":27,"round":"QUARTER-FINAL","s":"A","r":"TBD","w":"TBD","win":"","done":false,"encho":false,"slots":[{"t":"feeder","n":19,"lab":null},{"t":"feeder","n":20,"lab":null}],"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":27,"num":28,"round":"QUARTER-FINAL","s":"A","r":"TBD","w":"TBD","win":"","done":false,"encho":false,"slots":[{"t":"feeder","n":21,"lab":null},{"t":"feeder","n":22,"lab":null}],"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":28,"num":29,"round":"QUARTER-FINAL","s":"B","r":"TBD","w":"TBD","win":"","done":false,"encho":false,"slots":[{"t":"feeder","n":23,"lab":null},{"t":"feeder","n":24,"lab":null}],"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":29,"num":30,"round":"QUARTER-FINAL","s":"B","r":"TBD","w":"TBD","win":"","done":false,"encho":false,"slots":[{"t":"feeder","n":25,"lab":null},{"t":"feeder","n":26,"lab":null}],"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":30,"num":31,"round":"SEMI-FINAL","s":"A","r":"TBD","w":"TBD","win":"","done":false,"encho":false,"slots":[{"t":"feeder","n":27,"lab":null},{"t":"feeder","n":28,"lab":null}],"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":31,"num":32,"round":"SEMI-FINAL","s":"B","r":"TBD","w":"TBD","win":"","done":false,"encho":false,"slots":[{"t":"feeder","n":29,"lab":null},{"t":"feeder","n":30,"lab":null}],"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"ord":32,"num":33,"round":"FINAL","s":"A","r":"TBD","w":"TBD","win":"","done":false,"encho":false,"slots":[{"t":"feeder","n":31,"lab":null},{"t":"feeder","n":32,"lab":null}],"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""}]},{"id":"teams","name":"Teams","kind":"team","noPools":false,"pools":[{"ord":0,"num":null,"pool":1,"s":"A","r":"MIXED 01","w":"MIXED 02","win":"","done":false,"encho":false,"bouts":[{"red":"ANON 11","white":"ANON 15","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"ANON 59","white":"ANON 39","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"ANON 60","white":"ANON 66","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""}]},{"ord":1,"num":null,"pool":1,"s":"A","r":"MIXED 01","w":"MIXED 03","win":"","done":false,"encho":false,"bouts":[{"red":"ANON 11","white":"ANON 42","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"ANON 59","white":"ANON 43","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"ANON 60","white":"ANON 55","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""}]},{"ord":2,"num":null,"pool":1,"s":"A","r":"MIXED 02","w":"MIXED 03","win":"","done":false,"encho":false,"bouts":[{"red":"ANON 15","white":"ANON 42","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"ANON 39","white":"ANON 43","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"ANON 66","white":"ANON 55","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""}]},{"ord":3,"num":null,"pool":2,"s":"A","r":"MIXED 04","w":"MIXED 05","win":"","done":false,"encho":false,"bouts":[{"red":"ANON 07","white":"ANON 13","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"ANON 54","white":"ANON 24","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"ANON 70","white":"ANON 68","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""}]},{"ord":4,"num":null,"pool":2,"s":"A","r":"MIXED 04","w":"MIXED 06","win":"","done":false,"encho":false,"bouts":[{"red":"ANON 07","white":"ANON 18","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"ANON 54","white":"ANON 32","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"ANON 70","white":"ANON 33","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""}]},{"ord":5,"num":null,"pool":2,"s":"A","r":"MIXED 05","w":"MIXED 06","win":"","done":false,"encho":false,"bouts":[{"red":"ANON 13","white":"ANON 18","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"ANON 24","white":"ANON 32","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"ANON 68","white":"ANON 33","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""}]},{"ord":6,"num":null,"pool":3,"s":"A","r":"MIXED 07","w":"MIXED 08","win":"","done":false,"encho":false,"bouts":[{"red":"ANON 23","white":"ANON 03","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"ANON 64","white":"ANON 29","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"ANON 74","white":"ANON 67","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""}]},{"ord":7,"num":null,"pool":3,"s":"A","r":"MIXED 07","w":"MIXED 09","win":"","done":false,"encho":false,"bouts":[{"red":"ANON 23","white":"ANON 10","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"ANON 64","white":"ANON 14","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"ANON 74","white":"ANON 56","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""}]},{"ord":8,"num":null,"pool":3,"s":"A","r":"MIXED 08","w":"MIXED 09","win":"","done":false,"encho":false,"bouts":[{"red":"ANON 03","white":"ANON 10","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"ANON 29","white":"ANON 14","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"ANON 67","white":"ANON 56","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""}]},{"ord":9,"num":null,"pool":4,"s":"B","r":"MIXED 10","w":"MIXED 11","win":"","done":false,"encho":false,"bouts":[{"red":"ANON 25","white":"ANON 05","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"ANON 38","white":"ANON 48","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"ANON 73","white":"ANON 71","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""}]},{"ord":10,"num":null,"pool":4,"s":"B","r":"MIXED 10","w":"MIXED 12","win":"","done":false,"encho":false,"bouts":[{"red":"ANON 25","white":"ANON 16","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"ANON 38","white":"ANON 40","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"ANON 73","white":"ANON 63","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""}]},{"ord":11,"num":null,"pool":4,"s":"B","r":"MIXED 11","w":"MIXED 12","win":"","done":false,"encho":false,"bouts":[{"red":"ANON 05","white":"ANON 16","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"ANON 48","white":"ANON 40","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"ANON 71","white":"ANON 63","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""}]},{"ord":12,"num":null,"pool":5,"s":"B","r":"MIXED 13","w":"MIXED 14","win":"","done":false,"encho":false,"bouts":[{"red":"ANON 46","white":"ANON 34","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"ANON 52","white":"ANON 58","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"ANON 53","white":"ANON 72","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""}]},{"ord":13,"num":null,"pool":5,"s":"B","r":"MIXED 13","w":"MIXED 15","win":"","done":false,"encho":false,"bouts":[{"red":"ANON 46","white":"ANON 22","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"ANON 52","white":"ANON 35","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"ANON 53","white":"ANON 69","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""}]},{"ord":14,"num":null,"pool":5,"s":"B","r":"MIXED 14","w":"MIXED 15","win":"","done":false,"encho":false,"bouts":[{"red":"ANON 34","white":"ANON 22","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"ANON 58","white":"ANON 35","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"ANON 72","white":"ANON 69","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""}]},{"ord":15,"num":null,"pool":6,"s":"B","r":"MIXED 16","w":"MIXED 17","win":"","done":false,"encho":false,"bouts":[{"red":"ANON 21","white":"ANON 27","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"ANON 30","white":"ANON 36","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"ANON 75","white":"ANON 57","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""}]},{"ord":16,"num":null,"pool":7,"s":"B","r":"MIXED 18","w":"MIXED 19","win":"","done":false,"encho":false,"bouts":[{"red":"ANON 20","white":"ANON 31","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"ANON 61","white":"ANON 50","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"ANON 65","white":"ANON 76","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""}]}],"kos":[{"ord":0,"num":1,"round":"FIRST ROUND","s":"A","r":"Pool 1 #1","w":"Pool 7 #2","win":"","done":false,"encho":false,"slots":[{"t":"seed","n":null,"lab":"Pool 1 #1"},{"t":"seed","n":null,"lab":"Pool 7 #2"}],"bouts":[{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""}]},{"ord":1,"num":2,"round":"FIRST ROUND","s":"A","r":"Pool 2 #1","w":"Pool 6 #2","win":"","done":false,"encho":false,"slots":[{"t":"seed","n":null,"lab":"Pool 2 #1"},{"t":"seed","n":null,"lab":"Pool 6 #2"}],"bouts":[{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""}]},{"ord":2,"num":3,"round":"FIRST ROUND","s":"A","r":"Pool 3 #1","w":"Pool 5 #2","win":"","done":false,"encho":false,"slots":[{"t":"seed","n":null,"lab":"Pool 3 #1"},{"t":"seed","n":null,"lab":"Pool 5 #2"}],"bouts":[{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""}]},{"ord":3,"num":4,"round":"FIRST ROUND","s":"B","r":"Pool 5 #1","w":"Pool 3 #2","win":"","done":false,"encho":false,"slots":[{"t":"seed","n":null,"lab":"Pool 5 #1"},{"t":"seed","n":null,"lab":"Pool 3 #2"}],"bouts":[{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""}]},{"ord":4,"num":5,"round":"FIRST ROUND","s":"B","r":"Pool 6 #1","w":"Pool 2 #2","win":"","done":false,"encho":false,"slots":[{"t":"seed","n":null,"lab":"Pool 6 #1"},{"t":"seed","n":null,"lab":"Pool 2 #2"}],"bouts":[{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""}]},{"ord":5,"num":6,"round":"FIRST ROUND","s":"B","r":"Pool 7 #1","w":"Pool 1 #2","win":"","done":false,"encho":false,"slots":[{"t":"seed","n":null,"lab":"Pool 7 #1"},{"t":"seed","n":null,"lab":"Pool 1 #2"}],"bouts":[{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""}]},{"ord":6,"num":7,"round":"QUARTER-FINAL","s":"A","r":"TBD","w":"Pool 4 #2","win":"","done":false,"encho":false,"slots":[{"t":"feeder","n":1,"lab":null},{"t":"seed","n":null,"lab":"Pool 4 #2"}],"bouts":[{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""}]},{"ord":7,"num":8,"round":"QUARTER-FINAL","s":"A","r":"TBD","w":"TBD","win":"","done":false,"encho":false,"slots":[{"t":"feeder","n":2,"lab":null},{"t":"feeder","n":3,"lab":null}],"bouts":[{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""}]},{"ord":8,"num":9,"round":"QUARTER-FINAL","s":"B","r":"Pool 4 #1","w":"TBD","win":"","done":false,"encho":false,"slots":[{"t":"seed","n":null,"lab":"Pool 4 #1"},{"t":"feeder","n":4,"lab":null}],"bouts":[{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""}]},{"ord":9,"num":10,"round":"QUARTER-FINAL","s":"B","r":"TBD","w":"TBD","win":"","done":false,"encho":false,"slots":[{"t":"feeder","n":5,"lab":null},{"t":"feeder","n":6,"lab":null}],"bouts":[{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""}]},{"ord":10,"num":11,"round":"SEMI-FINAL","s":"A","r":"TBD","w":"TBD","win":"","done":false,"encho":false,"slots":[{"t":"feeder","n":7,"lab":null},{"t":"feeder","n":8,"lab":null}],"bouts":[{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""}]},{"ord":11,"num":12,"round":"SEMI-FINAL","s":"B","r":"TBD","w":"TBD","win":"","done":false,"encho":false,"slots":[{"t":"feeder","n":9,"lab":null},{"t":"feeder","n":10,"lab":null}],"bouts":[{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""}]},{"ord":12,"num":13,"round":"FINAL","s":"A","r":"TBD","w":"TBD","win":"","done":false,"encho":false,"slots":[{"t":"feeder","n":11,"lab":null},{"t":"feeder","n":12,"lab":null}],"bouts":[{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""}]}],"tree":[{"ord":0,"num":1,"round":"FIRST ROUND","s":"A","r":"Pool 1 #1","w":"Pool 7 #2","win":"","done":false,"encho":false,"slots":[{"t":"seed","n":null,"lab":"Pool 1 #1"},{"t":"seed","n":null,"lab":"Pool 7 #2"}],"bouts":[{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""}]},{"ord":1,"num":2,"round":"FIRST ROUND","s":"A","r":"Pool 2 #1","w":"Pool 6 #2","win":"","done":false,"encho":false,"slots":[{"t":"seed","n":null,"lab":"Pool 2 #1"},{"t":"seed","n":null,"lab":"Pool 6 #2"}],"bouts":[{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""}]},{"ord":2,"num":3,"round":"FIRST ROUND","s":"A","r":"Pool 3 #1","w":"Pool 5 #2","win":"","done":false,"encho":false,"slots":[{"t":"seed","n":null,"lab":"Pool 3 #1"},{"t":"seed","n":null,"lab":"Pool 5 #2"}],"bouts":[{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""}]},{"ord":3,"num":4,"round":"FIRST ROUND","s":"B","r":"Pool 5 #1","w":"Pool 3 #2","win":"","done":false,"encho":false,"slots":[{"t":"seed","n":null,"lab":"Pool 5 #1"},{"t":"seed","n":null,"lab":"Pool 3 #2"}],"bouts":[{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""}]},{"ord":4,"num":5,"round":"FIRST ROUND","s":"B","r":"Pool 6 #1","w":"Pool 2 #2","win":"","done":false,"encho":false,"slots":[{"t":"seed","n":null,"lab":"Pool 6 #1"},{"t":"seed","n":null,"lab":"Pool 2 #2"}],"bouts":[{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""}]},{"ord":5,"num":6,"round":"FIRST ROUND","s":"B","r":"Pool 7 #1","w":"Pool 1 #2","win":"","done":false,"encho":false,"slots":[{"t":"seed","n":null,"lab":"Pool 7 #1"},{"t":"seed","n":null,"lab":"Pool 1 #2"}],"bouts":[{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""}]},{"ord":6,"num":7,"round":"QUARTER-FINAL","s":"A","r":"TBD","w":"Pool 4 #2","win":"","done":false,"encho":false,"slots":[{"t":"feeder","n":1,"lab":null},{"t":"seed","n":null,"lab":"Pool 4 #2"}],"bouts":[{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""}]},{"ord":7,"num":8,"round":"QUARTER-FINAL","s":"A","r":"TBD","w":"TBD","win":"","done":false,"encho":false,"slots":[{"t":"feeder","n":2,"lab":null},{"t":"feeder","n":3,"lab":null}],"bouts":[{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""}]},{"ord":8,"num":9,"round":"QUARTER-FINAL","s":"B","r":"Pool 4 #1","w":"TBD","win":"","done":false,"encho":false,"slots":[{"t":"seed","n":null,"lab":"Pool 4 #1"},{"t":"feeder","n":4,"lab":null}],"bouts":[{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""}]},{"ord":9,"num":10,"round":"QUARTER-FINAL","s":"B","r":"TBD","w":"TBD","win":"","done":false,"encho":false,"slots":[{"t":"feeder","n":5,"lab":null},{"t":"feeder","n":6,"lab":null}],"bouts":[{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""}]},{"ord":10,"num":11,"round":"SEMI-FINAL","s":"A","r":"TBD","w":"TBD","win":"","done":false,"encho":false,"slots":[{"t":"feeder","n":7,"lab":null},{"t":"feeder","n":8,"lab":null}],"bouts":[{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""}]},{"ord":11,"num":12,"round":"SEMI-FINAL","s":"B","r":"TBD","w":"TBD","win":"","done":false,"encho":false,"slots":[{"t":"feeder","n":9,"lab":null},{"t":"feeder","n":10,"lab":null}],"bouts":[{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""}]},{"ord":12,"num":13,"round":"FINAL","s":"A","r":"TBD","w":"TBD","win":"","done":false,"encho":false,"slots":[{"t":"feeder","n":11,"lab":null},{"t":"feeder","n":12,"lab":null}],"bouts":[{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""},{"red":"","white":"","winner":"","encho":false,"redIppon":["",""],"whiteIppon":["",""],"redHansoku":"","whiteHansoku":"","symbol":""}]}]}],"schedule":[{"day":"Day 1 · Saturday 31 October","rows":[["09:30","Doors Open","–"],["10:00","Organisers & Shinpan Meeting","–"],["10:30","Opening Ceremony","–"],["10:45","Junior Individuals (Armour)","A"],["10:45","Junior Technical (Non-Armour)","B"],["10:50","Adult Technical (Non-Armour)","B"],["11:30","Junior Team (Armour)","A"],["11:30","Women’s Individuals","B"],["12:30","Lunch Break","–"],["13:00","Kyu Grading","–"],["14:30","Ambassador's Cup","A + B"],["18:00","Closing Ceremony","–"]]},{"day":"Day 2 · Sunday 1 November","rows":[["09:30","Doors Open","–"],["10:00","Organisers & Shinpan Meeting","–"],["10:30","Opening Ceremony","–"],["10:45","Mixed Teams","A + B"],["13:00","Lunch Break","–"],["14:00","Mixed Teams","A + B"],["16:30","Closing Ceremony","–"]]}],"snapshot":"2026-10-16T15:33:36+01:00"};
+var SNAPSHOT_LABEL = 'Friday 16 October 2026, 15:33';
+
+</script>
+<script>
+// ---- Championships scoreboard parser (browser port of the verified build-time parser) ----
+// Input: map of tab name -> rows (array of arrays of strings, Sheets values shape).
+var ROUND_ORDER = ['FIRST ROUND','SECOND ROUND','THIRD ROUND','QUARTER-FINAL','SEMI-FINAL','FINAL'];
+function cell(row, i){ if (i < row.length){ var v = row[i]; return v == null ? '' : String(v).trim(); } return ''; }
+function truthy(v){ return String(v).toUpperCase() === 'TRUE'; }
+function isHeaderRow(r){ return cell(r,0) === 'DONE'; }
+
+function parseStandardPools(rows){
+  var pools = [], cur = null;
+  rows.forEach(function(r, ri){
+    if (ri === 0 && isHeaderRow(r)) return;
+    var lab = cell(r,7), m = lab.match(/^P(\d+)$/);
+    if (m){ cur = parseInt(m[1],10); return; }
+    var num = cell(r,2), red = cell(r,11), white = cell(r,3);
+    if (/^\d+$/.test(num) && (red || white)){
+      pools.push({ num: parseInt(num,10), pool: cur, shiaijo: cell(r,1), red: red, white: white,
+        winner: cell(r,13), done: truthy(cell(r,0)), encho: truthy(cell(r,12)),
+        redIppon: [cell(r,9), cell(r,8)], whiteIppon: [cell(r,5), cell(r,6)],
+        redHansoku: cell(r,10), whiteHansoku: cell(r,4), symbol: cell(r,7) });
+    }
+  });
+  return pools;
+}
+function parseStandardKos(rows){
+  var out = [], cur = null;
+  rows.forEach(function(r, ri){
+    if (ri === 0 && isHeaderRow(r)) return;
+    var lab = cell(r,7);
+    if (ROUND_ORDER.indexOf(lab) >= 0){ cur = lab; return; }
+    var num = cell(r,2), red = cell(r,11), white = cell(r,3), sh = cell(r,1);
+    if (cur && (/^\d+$/.test(num) || red || white || sh === 'A' || sh === 'B')){
+      out.push({ round: cur, num: /^\d+$/.test(num) ? parseInt(num,10) : null, shiaijo: sh,
+        red: red, white: white, winner: cell(r,13), done: truthy(cell(r,0)), encho: truthy(cell(r,12)),
+        redIppon: [cell(r,9), cell(r,8)], whiteIppon: [cell(r,5), cell(r,6)],
+        redHansoku: cell(r,10), whiteHansoku: cell(r,4), symbol: cell(r,7) });
+    }
+  });
+  return out;
+}
+function parseTechPools(rows){
+  var out = [], cur = null;
+  rows.forEach(function(r, ri){
+    if (ri === 0 && isHeaderRow(r)) return;
+    var lab = cell(r,5), m = lab.match(/^P(\d+)$/);
+    if (m){ cur = parseInt(m[1],10); return; }
+    var num = cell(r,2), red = cell(r,7), white = cell(r,3);
+    if (/^\d+$/.test(num) && (red || white)){
+      out.push({ num: parseInt(num,10), pool: cur, shiaijo: cell(r,1), red: red, white: white,
+        winner: cell(r,9), done: truthy(cell(r,0)), encho: truthy(cell(r,8)),
+        redFlags: cell(r,6), whiteFlags: cell(r,4), symbol: cell(r,5) });
+    }
+  });
+  return out;
+}
+function parseTechKos(rows){
+  var out = [], cur = null;
+  rows.forEach(function(r, ri){
+    if (ri === 0 && isHeaderRow(r)) return;
+    var lab = cell(r,5);
+    if (ROUND_ORDER.indexOf(lab) >= 0){ cur = lab; return; }
+    var sh = cell(r,1);
+    if (cur && (sh === 'A' || sh === 'B')){
+      out.push({ round: cur, num: null, shiaijo: sh, red: cell(r,7), white: cell(r,3),
+        winner: cell(r,9), done: truthy(cell(r,0)), encho: truthy(cell(r,8)),
+        redFlags: cell(r,6), whiteFlags: cell(r,4), symbol: cell(r,5) });
+    }
+  });
+  return out;
+}
+function parseTeamBout(r){
+  return { red: cell(r,10), white: cell(r,2), winner: cell(r,12), done: truthy(cell(r,0)), encho: truthy(cell(r,11)),
+    redIppon: [cell(r,8), cell(r,7)], whiteIppon: [cell(r,4), cell(r,5)],
+    redHansoku: cell(r,9), whiteHansoku: cell(r,3), symbol: cell(r,6) };
+}
+function parseTeamTab(rows, kind){
+  var out = [], i = 1;
+  if (rows.length && isHeaderRow(rows[0])) i = 1; else i = 0;
+  while (i < rows.length){
+    var r = rows[i], lab = cell(r,6);
+    var isPoolHead = kind === 'pools' && /^P\d+$/.test(lab) && (cell(r,1) === 'A' || cell(r,1) === 'B');
+    var isKoHead = kind === 'kos' && ROUND_ORDER.indexOf(lab) >= 0 && (cell(r,1) === 'A' || cell(r,1) === 'B');
+    var isJtHead = kind === 'kos' && (cell(r,1) === 'A' || cell(r,1) === 'B') && (cell(r,2) || cell(r,10));
+    if (isPoolHead || isKoHead || isJtHead){
+      var match = { shiaijo: cell(r,1), red: cell(r,10), white: cell(r,2), winner: cell(r,12), done: truthy(cell(r,0)),
+        encho: truthy(cell(r,11)), pool: isPoolHead ? parseInt(lab.slice(1),10) : null,
+        round: isKoHead ? lab : null, bouts: [] };
+      var nb = kind === 'pools' ? 3 : 4;
+      for (var k = 1; k <= nb; k++){ if (i + k < rows.length) match.bouts.push(parseTeamBout(rows[i+k])); }
+      out.push(match);
+      i += nb + 1;
+    } else { i += 1; }
+  }
+  return out;
+}
+function parseDiagram(rows, numOff, seedOff){
+  var headers = {};
+  rows.forEach(function(r){
+    r.forEach(function(c, j){
+      var v = String(c == null ? '' : c).trim();
+      if (ROUND_ORDER.indexOf(v) >= 0 && !(v in headers)) headers[v] = j;
+    });
+  });
+  var rounds = {};
+  Object.keys(headers).forEach(function(rnd){
+    var hcol = headers[rnd], ncol = hcol + numOff, scol = hcol + seedOff;
+    var nums = [], seeds = [];
+    rows.forEach(function(r, ri){
+      var nv = cell(r, ncol);
+      if (/^\d+$/.test(nv)) nums.push([parseInt(nv,10), ri]);
+      var sv = cell(r, scol);
+      if (/^P\d+\.\d+$/.test(sv)) seeds.push([sv, ri]);
+    });
+    nums.sort(function(a,b){ return a[1]-b[1]; });
+    seeds.sort(function(a,b){ return a[1]-b[1]; });
+    rounds[rnd] = { nums: nums, seeds: seeds };
+  });
+  return rounds;
+}
+function buildBracket(diag){
+  var order = ROUND_ORDER.filter(function(r){ return r in diag; });
+  var matches = {}, prev = [];
+  order.forEach(function(rnd){
+    var info = diag[rnd], nums = info.nums.slice(), seeds = info.seeds;
+    if (!nums.length){
+      var keys = Object.keys(matches).map(Number);
+      var nxt = keys.length ? Math.max.apply(null, keys) + 1 : 1;
+      nums = [[nxt, 0]];
+    }
+    var bounds = [];
+    for (var k = 0; k < nums.length - 1; k++) bounds.push((nums[k][1] + nums[k+1][1]) / 2.0);
+    var perSeeds = nums.map(function(){ return []; });
+    seeds.forEach(function(sd){
+      var idx = 0;
+      while (idx < bounds.length && sd[1] > bounds[idx]) idx++;
+      perSeeds[idx].push(sd);
+    });
+    var cur = [], feederPool = prev.slice();
+    nums.forEach(function(nm, k){
+      var num = nm[0], nrow = nm[1], sd = perSeeds[k];
+      var nfeed = Math.max(0, 2 - sd.length);
+      var feeders = feederPool.slice(0, nfeed);
+      feederPool = feederPool.slice(nfeed);
+      var items = sd.map(function(s){ return [s[1], { type: 'seed', label: s[0] }]; });
+      feeders.forEach(function(f){ items.push([f.row, { type: 'feeder', num: f.num }]); });
+      items.sort(function(a,b){ return a[0]-b[0]; });
+      var slots = items.map(function(it){ return it[1]; });
+      while (slots.length < 2) slots.push({ type: 'tbd' });
+      var m = { num: num, round: rnd, row: nrow, slots: slots.slice(0,2) };
+      matches[num] = m;
+      cur.push(m);
+    });
+    prev = cur;
+  });
+  return Object.keys(matches).map(Number).sort(function(a,b){ return a-b; }).map(function(k){ return matches[k]; });
+}
+var CAT_DEFS = [
+  { id: 'junior-individual', name: 'Junior Individual', kind: 'standard', file: 'Junior Individual' },
+  { id: 'junior-technical', name: 'Junior Technical', kind: 'tech', file: 'Junior Technical' },
+  { id: 'adult-technical', name: 'Adult Technical', kind: 'tech', file: 'Adult Technical' },
+  { id: 'junior-teams', name: 'Junior Teams', kind: 'team', file: 'Junior Teams', noPools: true },
+  { id: 'women', name: 'Women', kind: 'standard', file: 'Women' },
+  { id: 'open', name: 'Open', kind: 'standard', file: 'Open' },
+  { id: 'teams', name: 'Teams', kind: 'team', file: 'Teams' }
+];
+function seedLabel(lab){
+  var m = lab.match(/^P(\d+)\.(\d+)$/);
+  return 'Pool ' + parseInt(m[1],10) + ' #' + parseInt(m[2],10);
+}
+function parseWorkbook(tabs){
+  var categories = CAT_DEFS.map(function(cat){
+    var f = cat.file, pools = [], kosRows = [], bracket = [];
+    if (cat.kind === 'standard'){
+      if (!cat.noPools) pools = parseStandardPools(tabs[f + ' - Pools'] || []);
+      kosRows = parseStandardKos(tabs[f + ' - KOs'] || []);
+      bracket = buildBracket(parseDiagram(tabs[f + ' - Scores'] || [], -1, -2));
+    } else if (cat.kind === 'tech'){
+      pools = parseTechPools(tabs[f + ' - Pools'] || []);
+      kosRows = parseTechKos(tabs[f + ' - KOs'] || []);
+      bracket = buildBracket(parseDiagram(tabs[f + ' - Scores'] || [], -1, -2));
+    } else {
+      if (!cat.noPools) pools = parseTeamTab(tabs[f + ' - Pools'] || [], 'pools');
+      kosRows = parseTeamTab(tabs[f + ' - KOs'] || [], 'kos');
+      if (cat.id === 'teams') bracket = buildBracket(parseDiagram(tabs[f + ' - Scores'] || [], -1, -2));
+    }
+    var byRound = {};
+    kosRows.forEach(function(r){
+      var key = r.round ? r.round : 'FINAL';
+      if (!byRound[key]) byRound[key] = [];
+      byRound[key].push(r);
+    });
+    var used = {}, merged = [];
+    bracket.forEach(function(bm){
+      var rnd = bm.round, idx = used[rnd] || 0;
+      used[rnd] = idx + 1;
+      var rowsR = byRound[rnd] || [], tab = null;
+      rowsR.forEach(function(r){ if (tab === null && r.num !== null && r.num === bm.num) tab = r; });
+      if (tab === null && idx < rowsR.length) tab = rowsR[idx];
+      var m = { num: bm.num, round: bm.round, row: bm.row, slots: bm.slots,
+                shiaijo: '', winner: '', done: false, encho: false };
+      if (tab){
+        ['shiaijo','winner','done','encho'].forEach(function(k){ if (k in tab) m[k] = tab[k]; });
+        if (tab.red) m.tabRed = tab.red;
+        if (tab.white) m.tabWhite = tab.white;
+        ['redIppon','whiteIppon','redHansoku','whiteHansoku','symbol','redFlags','whiteFlags','bouts'].forEach(function(k){
+          if (k in tab) m[k] = tab[k];
+        });
+      }
+      merged.push(m);
+    });
+    if (cat.id === 'junior-teams'){
+      kosRows.forEach(function(r){
+        merged.push({ num: null, round: 'FINAL', row: 0,
+          slots: [{ type: 'name', label: r.red }, { type: 'name', label: r.white }],
+          shiaijo: r.shiaijo, winner: r.winner, done: !!r.done, encho: r.encho, bouts: r.bouts,
+          tabRed: r.red, tabWhite: r.white });
+      });
+    }
+    // assemble render model
+    var byNum = {};
+    merged.forEach(function(m){ if (m.num !== null && m.num !== undefined) byNum[m.num] = m; });
+    function resolve(m, slot, side){
+      var tab = side === 0 ? m.tabRed : m.tabWhite;
+      if (tab) return tab;
+      if (slot.type === 'seed') return seedLabel(slot.label);
+      if (slot.type === 'name') return slot.label;
+      if (slot.type === 'feeder'){
+        var fm = byNum[slot.num];
+        if (fm && fm.winner) return fm.winner;
+        return 'TBD';
+      }
+      return 'TBD';
+    }
+    var outPools = pools.map(function(p, i){
+      var mp = { ord: i, num: (p.num !== undefined ? p.num : null), pool: (p.pool !== undefined ? p.pool : null),
+        s: p.shiaijo || '', r: p.red || '', w: p.white || '', win: p.winner || '',
+        done: !!p.done, encho: !!p.encho };
+      ['redIppon','whiteIppon','redHansoku','whiteHansoku','symbol','redFlags','whiteFlags','bouts'].forEach(function(k){
+        if (k in p) mp[k] = p[k];
+      });
+      return mp;
+    });
+    var outKos = merged.map(function(m, i){
+      var mk = { ord: i, num: m.num, round: m.round, s: m.shiaijo || '',
+        r: resolve(m, m.slots[0], 0), w: resolve(m, m.slots[1], 1),
+        win: m.winner || '', done: !!m.done, encho: !!m.encho,
+        slots: m.slots.map(function(s){
+          return { t: s.type, n: (s.num !== undefined ? s.num : null),
+                   lab: s.type === 'seed' ? seedLabel(s.label) : (s.label !== undefined ? s.label : null) };
+        }) };
+      ['redIppon','whiteIppon','redHansoku','whiteHansoku','symbol','redFlags','whiteFlags','bouts'].forEach(function(k){
+        if (k in m) mk[k] = m[k];
+      });
+      return mk;
+    });
+    return { id: cat.id, name: cat.name, kind: cat.kind, noPools: !!cat.noPools,
+             pools: outPools, kos: outKos, tree: outKos };
+  });
+  return { categories: categories };
+}
+// ---- end parser ----
+
+</script>
+<script>
+// ---- App: rendering + live refresh ----
+var DATA = SNAPSHOT;
+var liveOK = false, lastLive = null;
+var curCat = 'open', curPhase = 'pools', treeCat = 'open';
+var detailKey = null;
+var shCourt = 'A';
+var sjCollapsed = {};
+var lastSig = null;
+
+var ROUND_SHORT = { 'FIRST ROUND': 'First Round', 'SECOND ROUND': 'Second Round', 'THIRD ROUND': 'Third Round',
+  'QUARTER-FINAL': 'Quarter-Finals', 'SEMI-FINAL': 'Semi-Finals', 'FINAL': 'Final' };
+var ROUND_IDX = {};
+ROUND_ORDER.forEach(function(r, i){ ROUND_IDX[r] = i; });
+
+function esc(s){
+  return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){
+    return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+  });
+}
+function catById(id){
+  for (var i = 0; i < DATA.categories.length; i++) if (DATA.categories[i].id === id) return DATA.categories[i];
+  return DATA.categories[0];
+}
+function isFinished(m){ return m.done || !!m.win; }
+/* Internal status only; it is never shown as a label. The only status
+   label displayed anywhere in the app is "Completed": for a whole match
+   only when its DONE box is ticked in the scoreboard (m.done), and for
+   an individual team fight when that fight is finished (see
+   boutCompleted). A match can already be under way with no ippon
+   recorded yet, so a "not started / in progress" label would mislead.
+   No side is ever labelled or highlighted as the winner anywhere in
+   the app: names, panels and boxes render identically for both sides. */
+function hasIppon(arr){ return !!arr && arr.some(function(x){ return !!x; }); }
+function boutStarted(b){
+  return !!(b.winner || b.symbol || b.encho || hasIppon(b.redIppon) || hasIppon(b.whiteIppon) ||
+    b.redHansoku || b.whiteHansoku);
+}
+function boutCompleted(b){
+  /* An individual team fight is finished when its own DONE box is
+     ticked (b.done, read from the same DONE column as the whole match)
+     or when the scoreboard records the fight's outcome in its winner
+     column — a name, or "Draw" for a drawn fight. Ippon or hansoku
+     alone do not finish a fight: it can still be under way. */
+  return !!(b.done || b.winner);
+}
+function matchStatus(cat, m){
+  if (m.win || m.done) return m.win === 'Draw' ? 'draw' : 'done';
+  if (cat.kind === 'tech'){
+    if (m.redFlags || m.whiteFlags) return 'live';
+  } else if (cat.kind === 'team'){
+    if (m.bouts && m.bouts.some(boutStarted)) return 'live';
+  } else {
+    if (hasIppon(m.redIppon) || hasIppon(m.whiteIppon) || m.redHansoku || m.whiteHansoku) return 'live';
+  }
+  return 'todo';
+}
+function isTbd(name){ return !name || name === 'TBD'; }
+function fmtTime(d){
+  var h = d.getHours(), m = d.getMinutes();
+  return (h < 10 ? '0' : '') + h + ':' + (m < 10 ? '0' : '') + m;
+}
+function updateStatus(){
+  var wrap = document.getElementById('statusLine');
+  var txt = document.getElementById('statusText');
+  if (liveOK){
+    wrap.classList.add('live');
+    txt.textContent = 'Live · updated ' + fmtTime(lastLive);
+  } else {
+    wrap.classList.remove('live');
+    txt.textContent = 'Results as of ' + SNAPSHOT_LABEL + ' (snapshot).';
+  }
+}
+
+/* ---------- match rows ---------- */
+function sideLine(name, side){
+  var cls = 'm-side' + (isTbd(name) ? ' tbd' : '');
+  return '<div class="' + cls + '"><span class="' + (side === 'r' ? 'dot-r' : 'dot-w') + '"></span>' +
+    '<span class="nm">' + esc(name || 'TBD') + '</span></div>';
+}
+function matchRow(cat, phase, m, idx){
+  var st = matchStatus(cat, m);
+  var tags = m.done ? '<span class="tag status st-done">Completed</span>' : '';
+  if (m.s) tags += '<span class="tag court">Shiaijo ' + esc(m.s) + '</span>';
+  if (m.encho) tags += '<span class="tag encho">Encho</span>';
+  return '<button class="match-row" data-cat="' + cat.id + '" data-phase="' + phase + '" data-idx="' + idx + '">' +
+    '<span class="m-num">' + (m.num != null ? '#' + m.num : '·') + '</span>' +
+    '<span class="m-names">' + sideLine(m.r, 'r') + sideLine(m.w, 'w') + '</span>' +
+    '<span class="m-tags">' + tags + '</span><span class="chev">›</span></button>';
+}
+function renderMatchList(){
+  var cat = catById(curCat);
+  var wrap = document.getElementById('phaseWrap');
+  if (cat.noPools){ curPhase = 'kos'; wrap.style.display = 'none'; }
+  else wrap.style.display = '';
+  document.getElementById('segPools').setAttribute('aria-pressed', String(curPhase === 'pools'));
+  document.getElementById('segKos').setAttribute('aria-pressed', String(curPhase === 'kos'));
+  var html = '';
+  if (curPhase === 'pools'){
+    if (!cat.pools.length) html = '<p class="list-note">No pool matches in this category.</p>';
+    var groups = {}, gnum = {}, order = [];
+    cat.pools.forEach(function(m, i){
+      var g = m.pool != null ? 'Pool ' + m.pool : 'Matches';
+      if (!groups[g]){ groups[g] = []; gnum[g] = m.pool; order.push(g); }
+      groups[g].push([m, i]);
+    });
+    order.sort(function(a, b){
+      var na = gnum[a] == null ? 9999 : gnum[a], nb = gnum[b] == null ? 9999 : gnum[b];
+      return na - nb;
+    });
+    order.forEach(function(g){
+      html += '<h3 class="group">' + esc(g) + '</h3>';
+      groups[g].forEach(function(pair){ html += matchRow(cat, 'pools', pair[0], pair[1]); });
+    });
+  } else {
+    if (!cat.kos.length) html = '<p class="list-note">No knockout matches in this category.</p>';
+    var pairs = cat.kos.map(function(m, i){ return [m, i]; });
+    pairs.sort(function(a, b){
+      var d = ROUND_IDX[a[0].round] - ROUND_IDX[b[0].round];
+      if (d) return d;
+      var na = a[0].num == null ? 1000 + a[0].ord : a[0].num;
+      var nb = b[0].num == null ? 1000 + b[0].ord : b[0].num;
+      return na - nb;
+    });
+    var curRound = null;
+    pairs.forEach(function(pair){
+      if (pair[0].round !== curRound){
+        curRound = pair[0].round;
+        html += '<h3 class="group">' + esc(ROUND_SHORT[curRound] || curRound) + '</h3>';
+      }
+      html += matchRow(cat, 'kos', pair[0], pair[1]);
+    });
+  }
+  document.getElementById('matchList').innerHTML = html;
+}
+
+/* ---------- up next ---------- */
+var SEQ = {
+  A: ['junior-individual', 'junior-teams', 'open', 'teams'],
+  B: ['junior-technical', 'adult-technical', 'women', 'open', 'teams']
+};
+function orderedMatches(cat){
+  function key(m){ return m.num == null ? 1000 + m.ord : m.num; }
+  var pools = cat.pools.map(function(m, i){ return { m: m, phase: 'pools', idx: i }; })
+    .sort(function(a, b){ return key(a.m) - key(b.m); });
+  var kos = cat.kos.map(function(m, i){ return { m: m, phase: 'kos', idx: i }; })
+    .sort(function(a, b){
+      var d = ROUND_IDX[a.m.round] - ROUND_IDX[b.m.round];
+      return d ? d : key(a.m) - key(b.m);
+    });
+  return pools.concat(kos);
+}
+function renderUpNext(){
+  ['A', 'B'].forEach(function(sh){
+    var el = document.getElementById('un' + sh);
+    var found = null;
+    for (var i = 0; i < SEQ[sh].length; i++){
+      var cat = catById(SEQ[sh][i]);
+      var ms = orderedMatches(cat).filter(function(x){ return x.m.s === sh && !isFinished(x.m); });
+      if (ms.length){ found = { cat: cat, ms: ms }; break; }
+    }
+    var html = '<div class="un-head"><span class="un-court">Shiaijo ' + sh + '</span>' +
+      (found ? '<span class="un-cat">' + esc(found.cat.name) + '</span>' : '') + '</div>';
+    if (!found){
+      html += '<p class="un-empty">No further matches scheduled on this shiaijo.</p>';
+    } else {
+      var f = found.ms[0], fm = f.m;
+      var lab = 'Next up';
+      if (fm.num != null) lab += ' · Match ' + fm.num;
+      if (f.phase === 'pools' && fm.pool != null) lab += ' · Pool ' + fm.pool;
+      if (f.phase === 'kos') lab += ' · ' + (ROUND_SHORT[fm.round] || fm.round);
+      html += '<div class="un-next"><div class="lab">' + esc(lab) + '</div>' +
+        '<div class="un-names">' + esc(fm.r || 'TBD') + ' <span class="vs">vs</span> ' + esc(fm.w || 'TBD') + '</div></div>';
+      var then = found.ms.slice(1, 3);
+      if (then.length){
+        html += '<div class="un-then"><div class="lab">Then</div>' + then.map(function(x){
+          return '<div class="un-then-row"><span class="n">' + (x.m.num != null ? '#' + x.m.num : '') + '</span><span>' +
+            esc(x.m.r || 'TBD') + ' vs ' + esc(x.m.w || 'TBD') + '</span></div>';
+        }).join('') + '</div>';
+      }
+    }
+    el.innerHTML = html;
+  });
+}
+
+/* ---------- chips ---------- */
+function renderChips(){
+  document.getElementById('catChips').innerHTML = DATA.categories.map(function(c){
+    return '<button class="chip" data-cat="' + c.id + '" aria-pressed="' + String(c.id === curCat) + '">' + esc(c.name) + '</button>';
+  }).join('');
+  document.getElementById('treeChips').innerHTML = DATA.categories.map(function(c){
+    return '<button class="chip" data-cat="' + c.id + '" aria-pressed="' + String(c.id === treeCat) + '">' + esc(c.name) + '</button>';
+  }).join('');
+}
+
+/* ---------- schedule (baked snapshot) ---------- */
+function renderSchedule(){
+  document.getElementById('scheduleDays').innerHTML = SNAPSHOT.schedule.map(function(d){
+    return '<div class="day-card"><h3>' + esc(d.day) + '</h3>' + d.rows.map(function(r){
+      return '<div class="sched-row"><span class="sched-time">' + esc(r[0]) + '</span>' +
+        '<span class="sched-event">' + esc(r[1]) + '</span>' +
+        (r[2] && r[2] !== '–' ? '<span class="tag court sched-court">Shiaijo ' + esc(r[2]) + '</span>' : '') + '</div>';
+    }).join('') + '</div>';
+  }).join('');
+}
+
+/* ---------- tournament trees ---------- */
+var BOXW = 128, GAPX = 30, ROWH = 78, BOXH = 64, TOP = 30, PADX = 20;
+function treeSlot(name, side){
+  return '<div class="ts' + (isTbd(name) ? ' tbd' : '') + '">' +
+    '<span class="' + (side === 'r' ? 'dot-r' : 'dot-w') + '"></span>' +
+    '<span class="nm">' + esc(name || 'TBD') + '</span></div>';
+}
+function renderTree(){
+  var cat = catById(treeCat);
+  var canvas = document.getElementById('treeCanvas');
+  var matches = cat.tree;
+  var byNum = {};
+  matches.forEach(function(m){ if (m.num != null) byNum[m.num] = m; });
+  var final = null;
+  matches.forEach(function(m){ if (m.round === 'FINAL') final = m; });
+  if (!final){
+    canvas.innerHTML = '<p class="list-note" style="padding:16px">No bracket available for this category.</p>';
+    canvas.style.width = 'auto'; canvas.style.height = 'auto';
+    return;
+  }
+  var roundsSide = ROUND_ORDER.filter(function(r){
+    return r !== 'FINAL' && matches.some(function(m){ return m.round === r; });
+  });
+  var R = roundsSide.length, unit = BOXW + GAPX;
+  var totalCols = 2 * R + 1;
+  var width = totalCols * BOXW + (totalCols - 1) * GAPX + PADX * 2;
+  function feeders(m){
+    var out = [];
+    m.slots.forEach(function(s){ if (s.t === 'feeder' && byNum[s.n]) out.push(byNum[s.n]); });
+    return out;
+  }
+  var pos = {}, parentOf = {}, leafL = 0, leafR = 0;
+  matches.forEach(function(m){
+    feeders(m).forEach(function(f){ parentOf[f.ord] = m; });
+  });
+  function layout(m, side){
+    var fs = feeders(m), y;
+    if (!fs.length) y = (side === 'L' ? leafL++ : leafR++);
+    else {
+      var ys = fs.map(function(f){ return layout(f, side); });
+      y = ys.reduce(function(a, b){ return a + b; }, 0) / ys.length;
+    }
+    pos[m.ord] = { m: m, side: side, y: y };
+    return y;
+  }
+  var leftRoot = final.slots[0] && final.slots[0].t === 'feeder' ? byNum[final.slots[0].n] : null;
+  var rightRoot = final.slots[1] && final.slots[1].t === 'feeder' ? byNum[final.slots[1].n] : null;
+  var yL = leftRoot ? layout(leftRoot, 'L') : null;
+  var yR = rightRoot ? layout(rightRoot, 'R') : null;
+  var fy = (yL != null && yR != null) ? (yL + yR) / 2 : (yL != null ? yL : (yR != null ? yR : 0));
+  pos[final.ord] = { m: final, side: 'C', y: fy };
+  var leaves = Math.max(leafL, leafR, 1);
+  var height = TOP + leaves * ROWH + 10;
+  function colX(p){
+    if (p.side === 'C') return PADX + R * unit;
+    var ci = roundsSide.indexOf(p.m.round);
+    if (p.side === 'L') return PADX + ci * unit;
+    return PADX + (2 * R - ci) * unit;
+  }
+  function yPx(p){ return TOP + p.y * ROWH + (ROWH - BOXH) / 2; }
+  var html = '';
+  var paths = '';
+  Object.keys(pos).forEach(function(k){
+    var p = pos[k];
+    var x = colX(p), y = yPx(p), yc = y + BOXH / 2;
+    p.x = x; p.y = y; p.yc = yc;
+  });
+  Object.keys(pos).forEach(function(k){
+    var p = pos[k], par = parentOf[p.m.ord];
+    if (!par) return;
+    var pp = pos[par.ord];
+    if (!pp) return;
+    if (p.side === 'L'){
+      var sx = p.x + BOXW, ex = pp.x, mx = sx + GAPX / 2;
+      paths += '<path d="M' + sx + ' ' + p.yc + ' H' + mx + ' V' + pp.yc + ' H' + ex + '"/>';
+    } else if (p.side === 'R'){
+      var sx2 = p.x, ex2 = pp.x + BOXW, mx2 = sx2 - GAPX / 2;
+      paths += '<path d="M' + sx2 + ' ' + p.yc + ' H' + mx2 + ' V' + pp.yc + ' H' + ex2 + '"/>';
+    }
+  });
+  html += '<svg class="wires" width="' + width + '" height="' + height + '" aria-hidden="true">' + paths + '</svg>';
+  roundsSide.forEach(function(r, ci){
+    html += '<div class="t-round-lab" style="left:' + (PADX + ci * unit) + 'px;top:4px;width:' + BOXW + 'px">' + esc(ROUND_SHORT[r] || r) + '</div>';
+    html += '<div class="t-round-lab" style="left:' + (PADX + (2 * R - ci) * unit) + 'px;top:4px;width:' + BOXW + 'px">' + esc(ROUND_SHORT[r] || r) + '</div>';
+  });
+  html += '<div class="t-round-lab" style="left:' + (PADX + R * unit) + 'px;top:4px;width:' + BOXW + 'px">Final</div>';
+  Object.keys(pos).forEach(function(k){
+    var p = pos[k], m = p.m;
+    var isFinal = p.side === 'C';
+    html += '<div class="tbox' + (isFinal ? ' final-box' : '') +
+      '" style="left:' + p.x + 'px;top:' + p.y + 'px;height:' + BOXH + 'px">' +
+      (m.num != null ? '<span class="tn">#' + m.num + '</span>' : '') +
+      treeSlot(m.r, 'r') + treeSlot(m.w, 'w') + '</div>';
+  });
+  canvas.style.width = width + 'px';
+  canvas.style.height = height + 'px';
+  canvas.innerHTML = html;
+}
+
+/* ---------- match detail ---------- */
+function ipponText(arr){
+  if (!arr) return '';
+  return arr.filter(function(x){ return x; }).join(' · ');
+}
+function gridRowsHtml(rows){
+  if (!rows.length) return '';
+  return '<dl class="d-grid">' + rows.map(function(r){
+    return '<dt>' + esc(r[0]) + '</dt><dd>' + esc(r[1]) + '</dd>';
+  }).join('') + '</dl>';
+}
+function boutHasContent(b){
+  return !!(b.red || b.white || b.winner || ipponText(b.redIppon) || ipponText(b.whiteIppon) || b.redHansoku || b.whiteHansoku);
+}
+function detailHtml(cat, m){
+  var st = matchStatus(cat, m);
+  var html = (m.done ? '<div class="d-statusrow"><span class="tag status st-done">' +
+    (st === 'draw' ? 'Completed · Draw' : 'Completed') + '</span></div>' : '') +
+    '<div class="d-vs">' +
+    sideLineD(m.r, 'r') +
+    sideLineD(m.w, 'w') + '</div>';
+  var notes = [];
+  if (cat.kind === 'team' && m.bouts){
+    var anyBout = false;
+    m.bouts.forEach(function(b, i){
+      if (!boutHasContent(b)) return;
+      anyBout = true;
+      var bDone = boutCompleted(b);
+      var bHead = '<div class="bout-head">' +
+        (i === 3 ? '<h4><span class="dai">Daihyosen</span></h4>' : '<span></span>') +
+        (bDone ? '<span class="tag status st-done">Completed</span>' : '<span></span>') + '</div>';
+      html += '<div class="bout-block">' + bHead +
+        '<div class="d-vs">' + sideLineD(b.red, 'r') +
+        sideLineD(b.white, 'w') + '</div>';
+      var rows = [];
+      if (b.winner === 'Draw') rows.push(['Result', 'Draw']);
+      var ri = ipponText(b.redIppon); if (ri) rows.push(['Red ippon', ri]);
+      var wi = ipponText(b.whiteIppon); if (wi) rows.push(['White ippon', wi]);
+      if (b.redHansoku) rows.push(['Red 🔺', String(hansokuCount(b.redHansoku))]);
+      if (b.whiteHansoku) rows.push(['White 🔺', String(hansokuCount(b.whiteHansoku))]);
+      if (b.symbol) rows.push(['Result', b.symbol]);
+      if (b.encho) rows.push(['Encho', 'Yes']);
+      html += gridRowsHtml(rows) + '</div>';
+    });
+    var rows2 = [];
+    if (m.win === 'Draw') rows2.push(['Match result', 'Draw']);
+    if (m.bouts[3] && boutHasContent(m.bouts[3]) && m.win) notes.push('Decided by daihyosen.');
+    if (m.encho) rows2.push(['Encho', 'Yes']);
+    html += gridRowsHtml(rows2);
+    if (!anyBout && !m.win) html += '<p class="d-none">No result recorded yet.</p>';
+  } else {
+    var rows = [];
+    if (m.win === 'Draw') rows.push(['Result', 'Draw']);
+    if (cat.kind === 'tech'){
+      if (m.redFlags) rows.push(['Red flags', m.redFlags]);
+      if (m.whiteFlags) rows.push(['White flags', m.whiteFlags]);
+    } else {
+      var ri2 = ipponText(m.redIppon); if (ri2) rows.push(['Red ippon', ri2]);
+      var wi2 = ipponText(m.whiteIppon); if (wi2) rows.push(['White ippon', wi2]);
+      if (m.redHansoku) rows.push(['Red 🔺', String(hansokuCount(m.redHansoku))]);
+      if (m.whiteHansoku) rows.push(['White 🔺', String(hansokuCount(m.whiteHansoku))]);
+    }
+    if (m.symbol) rows.push(['Result', m.symbol]);
+    if (m.encho) rows.push(['Encho', 'Yes']);
+    if (!rows.length) html += '<p class="d-none">No result recorded yet.</p>';
+    else html += gridRowsHtml(rows);
+  }
+  notes.forEach(function(n){ html += '<p>' + esc(n) + '</p>'; });
+  return html;
+}
+function sideLineD(name, side){
+  return '<div class="d-side' + (isTbd(name) ? ' tbd' : '') + '"><span class="' + (side === 'r' ? 'dot-r' : 'dot-w') + '"></span>' +
+    '<span class="nm">' + esc(name || 'TBD') + '</span></div>';
+}
+function openDetail(catId, phase, idx){
+  var cat = catById(catId);
+  var m = (phase === 'pools' ? cat.pools : cat.kos)[idx];
+  if (!m) return;
+  detailKey = { cat: catId, phase: phase, idx: idx };
+  var sub = [];
+  if (phase === 'pools') sub.push(m.pool != null ? 'Pool ' + m.pool : 'Pool match');
+  else sub.push(ROUND_SHORT[m.round] || m.round);
+  if (m.num != null) sub.push('Match ' + m.num);
+  if (m.s) sub.push('Shiaijo ' + m.s);
+  document.getElementById('sheetTitle').textContent = cat.name;
+  document.getElementById('sheetSub').textContent = sub.join(' · ');
+  document.getElementById('sheetBody').innerHTML = detailHtml(cat, m);
+  var w = document.getElementById('sheetWrap');
+  w.classList.add('open');
+  w.setAttribute('aria-hidden', 'false');
+}
+function closeDetail(){
+  detailKey = null;
+  var w = document.getElementById('sheetWrap');
+  w.classList.remove('open');
+  w.setAttribute('aria-hidden', 'true');
+}
+
+/* ---------- shiaijo hall screens ---------- */
+/* One long scrollable board per court, in the scoreboard's own order:
+   categories in running order (SEQ), Pools before KOs, sheet order within
+   each. White is always on the left, red always on the right, and the
+   centre carries only the score count, with each side's ippon and
+   hansoku markers beside it at the same font size as the player
+   names. No status or winner wording sits in the centre. */
+function sjHasCourt(cat, sh){
+  return cat.pools.some(function(m){ return m.s === sh; }) ||
+         cat.kos.some(function(m){ return m.s === sh; });
+}
+function hansokuCount(v){
+  /* How many hansoku a scoreboard cell records: a number, that many
+     red triangles, or any other non-empty marker counts as one. */
+  var t = String(v == null ? '' : v).replace(/hansoku/gi, '').trim();
+  if (!t) return 0;
+  if (/^\d+$/.test(t)) return parseInt(t, 10);
+  var tri = t.match(/🔺|▲/g);
+  return tri ? tri.length : 1;
+}
+function hansokuMark(v){
+  /* The hansoku marker on its own — just the red triangle, never the
+     word — with the count beside it when there is more than one. */
+  var n = hansokuCount(v);
+  if (!n) return '';
+  return n > 1 ? '🔺 ' + n : '🔺';
+}
+function nIppon(arr){ return arr ? arr.filter(function(x){ return !!x; }).length : 0; }
+function sjIpponRow(arr, side){
+  /* The two ippon slots for one side. The first ippon sits on the
+     outside — farthest from the centre score — and the second ippon
+     on the inside, next to the score. White is left of the score, so
+     its slots read first, second; red is right of the score, so its
+     slots read second, first. An empty slot keeps its space, so a
+     lone ippon stays in its own position. */
+  /* Both slots are always rendered — empty ones keep their space —
+     so the row occupies exactly the same width whether zero, one or
+     two ippon have been scored. That is what keeps the hansoku slot
+     outside it in a fixed place, independent of ippon scored. */
+  var slots = arr ? [arr[0] || '', arr[1] || ''] : ['', ''];
+  var order = side === 'w' ? [0, 1] : [1, 0];
+  return '<div class="sj-ippon-row">' + order.map(function(i){
+    return '<span class="sj-ip' + (slots[i] ? '' : ' empty') + '">' +
+      (slots[i] ? esc(slots[i]) : '&nbsp;') + '</span>';
+  }).join('') + '</div>';
+}
+function sjMarkersSide(whiteIppon, redIppon, whiteHansoku, redHansoku, side){
+  /* One single row, vertically centred with the player names and
+     the score: hansoku sits on the outside — closest to the player
+     name, farthest from the centre score — with the ippon markers
+     between it and the score. White (left of the score) therefore
+     reads hansoku, ippon, score; red (right of the score) reads
+     score, ippon, hansoku. */
+  var hm = hansokuMark(side === 'w' ? whiteHansoku : redHansoku);
+  /* The hansoku slot is always rendered too — an invisible triangle
+     holds the place when there is no hansoku — so the ippon markers
+     never shift in or out depending on whether a hansoku is showing. */
+  var han = '<div class="sj-han-big' + (hm ? '' : ' empty') + '">' + (hm || '🔺') + '</div>';
+  var ip = sjIpponRow(side === 'w' ? whiteIppon : redIppon, side);
+  var html = '<div class="sj-markers ' + side + '">';
+  html += side === 'w' ? han + ip : ip + han;
+  return html + '</div>';
+}
+function sjMarkers(cat, m, side){
+  /* Ippon and hansoku markers for one side, shown in the centre
+     column beside the score (white markers left of the score, red
+     markers right of it) — not under the player's name — at the same
+     font size as the player names. Tech matches score by flags,
+     which are the centre count itself, so they need no markers. */
+  if (cat.kind !== 'standard') return '<div class="sj-markers ' + side + '"></div>';
+  return sjMarkersSide(m.whiteIppon, m.redIppon, m.whiteHansoku, m.redHansoku, side);
+}
+function boutWinnerSide(b, m){
+  /* Which side won an individual team fight: 'w', 'r', or '' when
+     the fight was drawn or has no recorded winner. The scoreboard's
+     WINNER column on a bout row names the winning TEAM (e.g.
+     "DUBLIN 04" on the REDDIN vs HAWRYSZ bout, whose winner is the
+     red player HAWRYSZ of Dublin 04) — the same team-name value the
+     match header row carries — or "Draw" for a drawn fight. It never
+     holds the winning player's name, so comparing it with b.white /
+     b.red can never match and the fights-won counters stayed at 0
+     while the ippon tally (summed from the ippon columns) was right.
+     Compare it with the team names (m.w / m.r) first, keep the
+     player-name comparison in case a tab ever records a player, and
+     as a last resort for a named winner that matches neither side
+     (e.g. a knockout match whose team slots still read as pool
+     seeds) fall back to the bout's ippon: more ippon won the fight. */
+  var win = b.winner;
+  if (!win || win === 'Draw') return '';
+  if (win === b.red || (m && win === m.r)) return 'r';
+  if (win === b.white || (m && win === m.w)) return 'w';
+  var wi = nIppon(b.whiteIppon), ri = nIppon(b.redIppon);
+  if (wi !== ri) return wi > ri ? 'w' : 'r';
+  return '';
+}
+function sjCountText(cat, m){
+  if (cat.kind === 'tech'){
+    return (m.whiteFlags || '0') + ' – ' + (m.redFlags || '0');
+  }
+  if (cat.kind === 'team'){
+    if (!m.bouts || !m.bouts.length) return '';
+    var w = 0, r = 0, any = false;
+    m.bouts.forEach(function(b){
+      var side = boutWinnerSide(b, m);
+      if (side === 'w'){ w++; any = true; }
+      else if (side === 'r'){ r++; any = true; }
+    });
+    return any ? w + ' – ' + r : '';
+  }
+  function n(arr){ return arr ? arr.filter(function(x){ return !!x; }).length : 0; }
+  return n(m.whiteIppon) + ' – ' + n(m.redIppon);
+}
+function teamTally(m){
+  /* Running totals for a team match, summed over the fights under the
+     team names: ippon scored by each side, individual fights won by
+     each side, and whether every fight is completed. A fight counts
+     when it has content (see boutHasContent) — so an unplayed
+     daihyosen slot, which has no names or result, is not a fight
+     under the teams and does not hold back completion, while a
+     played daihyosen does count like any other fight. A drawn fight
+     is completed but is a win for neither side. Wins are read with
+     boutWinnerSide: the scoreboard's bout WINNER column names the
+     winning team, not the winning player. */
+  var t = { wWins: 0, rWins: 0, wIppon: 0, rIppon: 0, fights: 0, completed: 0, allCompleted: false };
+  if (!m.bouts) return t;
+  m.bouts.forEach(function(b){
+    if (!boutHasContent(b)) return;
+    t.fights++;
+    if (boutCompleted(b)) t.completed++;
+    t.wIppon += nIppon(b.whiteIppon);
+    t.rIppon += nIppon(b.redIppon);
+    var side = boutWinnerSide(b, m);
+    if (side === 'w') t.wWins++;
+    else if (side === 'r') t.rWins++;
+  });
+  t.allCompleted = t.fights > 0 && t.completed === t.fights;
+  return t;
+}
+function sjMatchKey(cat, phase, m){
+  return cat.id + '|' + phase + '|' + (m.pool != null ? 'p' + m.pool : '') + '|' +
+    (m.num != null ? 'n' + m.num : 'o' + m.ord) + '|' + (m.w || '') + '|' + (m.r || '');
+}
+function sjDoneSlot(done){
+  /* The "Completed" marker sits in the centre column, just above the
+     fight result. The slot is always rendered — empty when the fight
+     is not completed — so the space for the marker is always reserved
+     and a fight's height never changes when it completes. In team
+     matches this is what keeps a fixed buffer between the individual
+     fights, instead of one appearing and disappearing. */
+  return '<div class="sj-done-slot">' + (done ? '<span class="sj-status">Completed</span>' : '') + '</div>';
+}
+function sjMetaDone(done){
+  /* The match-level "Completed" marker sits on the meta line (the
+     "Pool X · Match Y of Z" line), at its right end, in the same
+     pill format as the individual fights' marker. The pill is
+     always rendered — visibility hidden until the match completes —
+     so the meta line keeps one fixed height and nothing on the card
+     moves when a match completes. */
+  return '<span class="sj-meta-done' + (done ? '' : ' is-off') + '">Completed</span>';
+}
+function sjEnchoSlot(encho){
+  /* The "Encho" marker mirrors the "Completed" marker — same pill in
+     a red box — and sits in the centre column just below the fight
+     result. The slot is always rendered at the same fixed height
+     (empty when the fight is not in encho), matching the Completed
+     slot's height, so the marker flicking on can never move the
+     player names, hansoku or ippon markers off their line. */
+  return '<div class="sj-encho-slot">' + (encho ? '<span class="sj-encho">Encho</span>' : '') + '</div>';
+}
+function sjMatchHtml(cat, phase, m, poolPos, poolTotal){
+  var st = matchStatus(cat, m);
+  var isTeam = cat.kind === 'team';
+  var meta = [];
+  if (phase === 'pools' && m.pool != null) meta.push('Pool ' + m.pool);
+  if (phase === 'kos') meta.push(ROUND_SHORT[m.round] || m.round || '');
+  if (phase === 'pools' && poolPos != null && poolTotal != null){
+    meta.push('Match ' + poolPos + ' of ' + poolTotal);
+  } else if (m.num != null) meta.push('Match ' + m.num);
+  var key = isTeam ? sjMatchKey(cat, phase, m) : '';
+  var collapsed = isTeam && !!sjCollapsed[key];
+  var tally = isTeam ? teamTally(m) : null;
+  var matchDone = isTeam ? (m.done || tally.allCompleted) : m.done;
+  var collapseBtn = isTeam ?
+    '<button type="button" class="sj-collapse-btn" data-collapse-key="' + esc(key) + '" aria-expanded="' + String(!collapsed) + '" aria-label="' + (collapsed ? 'Show player names' : 'Collapse player names into team name') + '" title="' + (collapsed ? 'Show player names' : 'Collapse player names') + '">' + (collapsed ? '▸' : '▾') + '</button>' : '';
+  var html = '<article class="sj-match st-' + st + (collapsed ? ' collapsed' : '') + '">' +
+    '<div class="sj-meta">' + collapseBtn + '<span>' + esc(meta.filter(Boolean).join(' · ')) + '</span>' + sjMetaDone(matchDone) + '</div>';
+  if (cat.kind === 'team'){
+    /* Team match: the team names sit on their own higher band above
+       the bouts, and each bout is laid out exactly like an individual
+       match — same side panels, type, sizes and colours, same centre
+       score and ippon markers — with the players' names in place of
+       the team names. The match's "Completed" marker sits on the
+       meta line above (see sjMetaDone), shown when every fight
+       under the teams is completed — or when the match's own DONE
+       box is ticked. Between the team names, the tally row shows
+       the ippon scored by each side in the same format as an
+       individual fight's score, flanked by the number of individual
+       fights each side has won inside a circle — white on the left,
+       red on the right. The tally is the header row's only centre
+       content, so the grid's vertical centring lines it up with
+       the team names on either side. The tally is always shown,
+       starting at 0, so the header never changes size as results
+       come in. */
+    html += '<div class="sj-team-head">' +
+      '<div class="sj-team-name w">' + esc(m.w || 'TBD') + '</div>' +
+      '<div class="sj-team-tally">' +
+      '<span class="sj-win-circle w" title="White fights won" aria-label="White fights won: ' + tally.wWins + '">' + tally.wWins + '</span>' +
+      '<div class="sj-team-score" title="Ippon scored" aria-label="Ippon scored: white ' + tally.wIppon + ', red ' + tally.rIppon + '">' + tally.wIppon + ' – ' + tally.rIppon + '</div>' +
+      '<span class="sj-win-circle r" title="Red fights won" aria-label="Red fights won: ' + tally.rWins + '">' + tally.rWins + '</span>' +
+      '</div>' +
+      '<div class="sj-team-name r">' + esc(m.r || 'TBD') + '</div></div>';
+    if (m.bouts && m.bouts.length){
+      html += '<div class="sj-bouts">';
+      m.bouts.forEach(function(b, i){
+        if (boutHasContent(b)) html += sjBoutHtml(b, i);
+      });
+      html += '</div>';
+    }
+    return html + '</article>';
+  }
+  var count = sjCountText(cat, m);
+  html += '<div class="sj-grid">' +
+    '<div class="sj-side white"><div class="sj-name">' + esc(m.w || 'TBD') + '</div></div>' +
+    '<div class="sj-centre"><div class="sj-score-row">' + sjMarkers(cat, m, 'w') +
+      '<div class="sj-count">' + esc(count) + '</div>' + sjMarkers(cat, m, 'r') + '</div>' +
+      sjEnchoSlot(m.encho) + '</div>' +
+    '<div class="sj-side red"><div class="sj-name">' + esc(m.r || 'TBD') + '</div></div>' +
+    '</div>';
+  return html + '</article>';
+}
+function sjBoutHtml(b, i){
+  /* One team bout, rendered with the same markup and classes as an
+     individual match in the shiaijo view, so the panels, player
+     names, centre score and ippon markers all match. A finished
+     fight carries its "Completed" marker in the centre, just above
+     its result; the slot for it is rendered for every fight (see
+     sjDoneSlot), so the buffer between fights is always there and
+     never appears or disappears as fights complete. The whole team
+     match carries its own "Completed" marker on the card's meta
+     line (see sjMetaDone), shown when every fight under the teams
+     is completed (or the match's DONE box is ticked). */
+  var bDone = boutCompleted(b);
+  var count = nIppon(b.whiteIppon) + ' – ' + nIppon(b.redIppon);
+  return '<div class="sj-bout-block">' +
+    '<div class="sj-grid">' +
+    '<div class="sj-side white"><div class="sj-name">' + esc(b.white || 'TBD') + '</div></div>' +
+    '<div class="sj-centre">' + sjDoneSlot(bDone) +
+      (i === 3 ? '<div class="sj-dai">Daihyosen</div>' : '') +
+      '<div class="sj-score-row">' +
+      sjMarkersSide(b.whiteIppon, b.redIppon, b.whiteHansoku, b.redHansoku, 'w') +
+      '<div class="sj-count">' + count + '</div>' +
+      sjMarkersSide(b.whiteIppon, b.redIppon, b.whiteHansoku, b.redHansoku, 'r') + '</div>' +
+      sjEnchoSlot(b.encho) + '</div>' +
+    '<div class="sj-side red"><div class="sj-name">' + esc(b.red || 'TBD') + '</div></div>' +
+    '</div></div>';
+}
+function renderShiaijo(){
+  var isA = shCourt === 'A';
+  document.getElementById('sjBtnA').setAttribute('aria-pressed', String(isA));
+  document.getElementById('sjBtnB').setAttribute('aria-pressed', String(!isA));
+  var ids = SEQ[shCourt].slice();
+  DATA.categories.forEach(function(c){ if (ids.indexOf(c.id) < 0) ids.push(c.id); });
+  var cats = [];
+  ids.forEach(function(id){
+    var c = catById(id);
+    if (c && cats.indexOf(c) < 0 && sjHasCourt(c, shCourt)) cats.push(c);
+  });
+  document.getElementById('sjChips').innerHTML = cats.map(function(c){
+    return '<button class="chip" data-target="sj-cat-' + c.id + '">' + esc(c.name) + '</button>';
+  }).join('');
+  var html = '';
+  if (!cats.length) html = '<p class="list-note">No matches on Shiaijo ' + shCourt + ' yet.</p>';
+  cats.forEach(function(cat){
+    html += '<h3 class="sj-cat-head" id="sj-cat-' + cat.id + '">' + esc(cat.name) + '</h3>';
+    var pools = cat.pools.filter(function(m){ return m.s === shCourt; });
+    if (pools.length){
+      html += '<h4 class="sj-phase">Pools</h4>';
+      var poolTotals = {}, poolSeen = {};
+      pools.forEach(function(m){
+        var pk = m.pool != null ? String(m.pool) : '__none';
+        poolTotals[pk] = (poolTotals[pk] || 0) + 1;
+      });
+      var curPool = '__none';
+      pools.forEach(function(m){
+        if (m.pool != null && m.pool !== curPool){
+          curPool = m.pool;
+          html += '<h4 class="sj-phase">Pool ' + m.pool + '</h4>';
+        }
+        var pk2 = m.pool != null ? String(m.pool) : '__none';
+        poolSeen[pk2] = (poolSeen[pk2] || 0) + 1;
+        html += sjMatchHtml(cat, 'pools', m, poolSeen[pk2], poolTotals[pk2]);
+      });
+    }
+    var kos = cat.kos.filter(function(m){ return m.s === shCourt; }).slice();
+    kos.sort(function(a, b){
+      var d = (ROUND_IDX[a.round] || 0) - (ROUND_IDX[b.round] || 0);
+      if (d) return d;
+      var na = a.num == null ? 1000 + a.ord : a.num, nb = b.num == null ? 1000 + b.ord : b.num;
+      return na - nb;
+    });
+    if (kos.length){
+      html += '<h4 class="sj-phase">Knockouts</h4>';
+      var curRound = '__none';
+      kos.forEach(function(m){
+        if (m.round && m.round !== curRound){
+          curRound = m.round;
+          html += '<h4 class="sj-phase">' + esc(ROUND_SHORT[m.round] || m.round) + '</h4>';
+        }
+        html += sjMatchHtml(cat, 'kos', m);
+      });
+    }
+  });
+  document.getElementById('sjList').innerHTML = html;
+}
+
+/* ---------- views ---------- */
+function switchView(v){
+  document.querySelectorAll('.topnav button').forEach(function(b){
+    b.setAttribute('aria-selected', String(b.getAttribute('data-view') === v));
+  });
+  document.querySelectorAll('section.view').forEach(function(s){
+    s.classList.toggle('active', s.id === 'view-' + v);
+  });
+  document.querySelector('main').classList.toggle('wide', v === 'shiaijo');
+  window.scrollTo(0, 0);
+}
+function renderAll(){
+  renderChips();
+  renderUpNext();
+  renderMatchList();
+  renderTree();
+  renderShiaijo();
+  updateStatus();
+  if (detailKey) openDetail(detailKey.cat, detailKey.phase, detailKey.idx);
+}
+
+/* ---------- live feed (gviz) ---------- */
+var SHEET_ID = '1ahygDdJGr8wrnbRQmjTHcPtxgS-7w9pwfyM89rpk3W0';
+var TAB_NAMES = [];
+CAT_DEFS.forEach(function(c){
+  if (c.id === 'junior-teams'){ TAB_NAMES.push(c.file + ' - KOs'); return; }
+  TAB_NAMES.push(c.file + ' - Scores');
+  TAB_NAMES.push(c.file + ' - Pools');
+  TAB_NAMES.push(c.file + ' - KOs');
+});
+function rowsFromObj(obj){
+  if (!obj || obj.status === 'error') throw new Error('feed returned an error');
+  if (!obj.table || !obj.table.rows) throw new Error('no table in feed response');
+  return obj.table.rows.map(function(row){
+    var cells = (row && row.c) || [];
+    var out = [];
+    for (var i = 0; i < cells.length; i++){
+      var c = cells[i];
+      if (!c) { out.push(''); continue; }
+      if (c.f != null) { out.push(String(c.f)); continue; }
+      if (c.v == null) { out.push(''); continue; }
+      if (typeof c.v === 'boolean') { out.push(c.v ? 'TRUE' : 'FALSE'); continue; }
+      out.push(String(c.v));
+    }
+    return out;
+  });
+}
+function gvizRows(text){
+  var start = text.indexOf('{'), end = text.lastIndexOf('}');
+  if (start < 0 || end <= start) throw new Error('unexpected feed response');
+  return rowsFromObj(JSON.parse(text.slice(start, end + 1)));
+}
+/* Primary transport: load the gviz feed as a script (JSONP-style response
+   handler). A plain fetch() is blocked by CORS whenever this page runs with
+   an opaque origin (sandboxed iframe): Google returns no
+   Access-Control-Allow-Origin for Origin "null", so every fetch rejected
+   and the page silently stayed on the baked snapshot. Script tags are not
+   subject to CORS, so this path works from any origin. fetch() is kept as
+   a fallback for environments where script loading is restricted.
+   The feed is requested with headers=1 (the sheet's first row is its header
+   row): with headers=0 gviz infers a numeric type for the ippon columns
+   from the header row's 1/2 markers and silently returns text ippon such
+   as "M" as null, dropping the second ippon of a side. */
+var cbSeq = 0;
+function fetchTabViaScript(name, range){
+  return new Promise(function(resolve, reject){
+    var cb = '__gvizCb' + (++cbSeq);
+    var url = 'https://docs.google.com/spreadsheets/d/' + SHEET_ID +
+      '/gviz/tq?tqx=' + encodeURIComponent('out:json;responseHandler:' + cb) +
+      '&headers=1&sheet=' + encodeURIComponent(name) +
+      (range ? '&range=' + encodeURIComponent(range) : '');
+    var sc = document.createElement('script');
+    var done = false;
+    var timer = setTimeout(function(){ finish(new Error('feed timeout')); }, 15000);
+    function finish(err, rows){
+      if (done) return;
+      done = true;
+      clearTimeout(timer);
+      try { delete window[cb]; } catch (e) { window[cb] = undefined; }
+      if (sc.parentNode) sc.parentNode.removeChild(sc);
+      if (err) reject(err); else resolve(rows);
+    }
+    window[cb] = function(obj){
+      try { finish(null, rowsFromObj(obj)); } catch (e) { finish(e); }
+    };
+    sc.onerror = function(){ finish(new Error('feed load failed')); };
+    sc.src = url;
+    document.head.appendChild(sc);
+  });
+}
+function fetchTabViaFetch(name, range){
+  var url = 'https://docs.google.com/spreadsheets/d/' + SHEET_ID +
+    '/gviz/tq?tqx=out:json&headers=1&sheet=' + encodeURIComponent(name) +
+    (range ? '&range=' + encodeURIComponent(range) : '');
+  var ctl = ('AbortController' in window) ? new AbortController() : null;
+  var timer = ctl ? setTimeout(function(){ ctl.abort(); }, 15000) : null;
+  return fetch(url, ctl ? { signal: ctl.signal } : {})
+    .then(function(res){
+      if (timer) clearTimeout(timer);
+      if (!res.ok) throw new Error('feed HTTP ' + res.status);
+      return res.text();
+    })
+    .then(function(text){ return gvizRows(text); });
+}
+/* The three team tabs keep each match's bout rows inside collapsed
+   outline groups, and gviz only ever returns the rows outside those
+   groups: for Teams - Pools it returned just the match header rows, so
+   the live parse found 5 of the 17 pool matches and read later headers
+   as bouts. No gviz range or query changes that. The CSV export of the
+   same tab returns every row in grid order, so the team tabs are
+   fetched as CSV instead. That needs fetch(): Google answers the
+   export request with CORS headers a real page origin can use (the
+   origin reflected on the redirect, Access-Control-Allow-Origin: * on
+   the file itself). Where fetch is unavailable (an opaque-origin
+   frame, e.g. the Muse app), the gviz fallback below takes over —
+   but with a repair step, because a plain whole-tab gviz read of a
+   team tab silently loses the bouts' ippon and hansoku: the match
+   header rows carry numeric team totals in the marker columns, so
+   gviz types those columns "number" for the whole tab and returns
+   every text marker (an ippon letter, a 🔺) as null, while the
+   boolean DONE/ENCHO columns and the string name/winner columns
+   survive — a bout then shows Completed and Encho but no ippon or
+   hansoku. A gviz request limited by range to a single match block
+   (header row plus its bout rows) types the same columns from that
+   block alone and returns the markers intact, so the fallback
+   re-reads each block that way and overlays the marker columns onto
+   the whole-tab rows (see fetchTeamTabViaGviz). The gid values are
+   the team tabs' sheet ids from the workbook. */
+var TEAM_TAB_GIDS = { 'Teams - Pools': '2119761172', 'Teams - KOs': '1791460071', 'Junior Teams - KOs': '35962766' };
+function parseCsv(text){
+  var rows = [], row = [], field = '', inQ = false, i = 0, c;
+  function endField(){ row.push(field); field = ''; }
+  function endRow(){ endField(); rows.push(row); row = []; }
+  while (i < text.length){
+    c = text[i];
+    if (inQ){
+      if (c === '"'){
+        if (text[i + 1] === '"'){ field += '"'; i += 2; continue; }
+        inQ = false; i++; continue;
+      }
+      field += c; i++; continue;
+    }
+    if (c === '"'){ inQ = true; i++; continue; }
+    if (c === ','){ endField(); i++; continue; }
+    if (c === '\r'){ i++; continue; }
+    if (c === '\n'){ endRow(); i++; continue; }
+    field += c; i++;
+  }
+  if (field !== '' || row.length) endRow();
+  return rows;
+}
+function fetchTabViaCsv(name){
+  var url = 'https://docs.google.com/spreadsheets/d/' + SHEET_ID +
+    '/export?format=csv&gid=' + TEAM_TAB_GIDS[name];
+  var ctl = ('AbortController' in window) ? new AbortController() : null;
+  var timer = ctl ? setTimeout(function(){ ctl.abort(); }, 15000) : null;
+  return fetch(url, ctl ? { signal: ctl.signal } : {})
+    .then(function(res){
+      if (timer) clearTimeout(timer);
+      if (!res.ok) throw new Error('csv HTTP ' + res.status);
+      return res.text();
+    })
+    .then(function(text){
+      var rows = parseCsv(text);
+      if (rows.length < 20 || !isHeaderRow(rows[0])) throw new Error('csv feed unexpected shape');
+      return rows;
+    });
+}
+var TEAM_TAB_KIND = { 'Teams - Pools': 'pools', 'Teams - KOs': 'kos', 'Junior Teams - KOs': 'kos' };
+/* The bout marker columns in a team tab: white hansoku / ippon 1 /
+   ippon 2 and red ippon 2 / ippon 1 / hansoku — the columns a
+   whole-tab gviz read mistypes as numbers (see above). */
+var TEAM_MARKER_COLS = [3, 4, 5, 7, 8, 9];
+function teamBlockStarts(rows, kind){
+  /* The same walk parseTeamTab makes over a team tab: the row index
+     of each match header row, and how many bout rows follow it. */
+  var starts = [], i = (rows.length && isHeaderRow(rows[0])) ? 1 : 0;
+  while (i < rows.length){
+    var r = rows[i], lab = cell(r, 6);
+    var isPoolHead = kind === 'pools' && /^P\d+$/.test(lab) && (cell(r, 1) === 'A' || cell(r, 1) === 'B');
+    var isKoHead = kind === 'kos' && ROUND_ORDER.indexOf(lab) >= 0 && (cell(r, 1) === 'A' || cell(r, 1) === 'B');
+    var isJtHead = kind === 'kos' && (cell(r, 1) === 'A' || cell(r, 1) === 'B') && (cell(r, 2) || cell(r, 10));
+    if (isPoolHead || isKoHead || isJtHead){
+      var nb = kind === 'pools' ? 3 : 4;
+      starts.push({ start: i, nb: nb });
+      i += nb + 1;
+    } else { i += 1; }
+  }
+  return starts;
+}
+function fetchGvizRange(name, range){
+  return fetchTabViaScript(name, range).catch(function(){ return fetchTabViaFetch(name, range); });
+}
+function fetchTeamTabViaGviz(name){
+  /* Whole-tab gviz first (structure, names, DONE/ENCHO and winners
+     all survive its column typing), then one range-limited gviz read
+     per match block to recover the marker columns it nulled, overlaid
+     onto the bout rows. A block that fails keeps the whole-tab values,
+     so a block failure degrades that one match, never the tab. */
+  var kind = TEAM_TAB_KIND[name] || 'pools';
+  return fetchTabViaScript(name).catch(function(){ return fetchTabViaFetch(name); })
+    .then(function(rows){
+      var blocks = teamBlockStarts(rows, kind);
+      if (!blocks.length) return rows;
+      var queue = blocks.slice();
+      function worker(){
+        if (!queue.length) return Promise.resolve();
+        var b = queue.shift();
+        /* rows[i] is sheet row i + 2 (gviz consumed the sheet's own
+           header row), so the block header sits on sheet row
+           b.start + 2 and its bouts on the nb rows after it. With
+           headers=1 the range read consumes that header row itself,
+           so its rows are exactly the block's bout rows. */
+        var range = 'A' + (b.start + 2) + ':M' + (b.start + 2 + b.nb);
+        return fetchGvizRange(name, range).then(function(blockRows){
+          blockRows.forEach(function(br, k){
+            var target = rows[b.start + 1 + k];
+            if (!target) return;
+            TEAM_MARKER_COLS.forEach(function(ci){
+              if (br[ci]) target[ci] = br[ci];
+            });
+          });
+        }, function(){ /* keep the whole-tab values for this block */ }).then(worker);
+      }
+      var workers = [];
+      for (var w = 0; w < 4; w++) workers.push(worker());
+      return Promise.all(workers).then(function(){ return rows; });
+    });
+}
+function fetchTab(name){
+  var viaGviz = function(){
+    return fetchTabViaScript(name).catch(function(){ return fetchTabViaFetch(name); });
+  };
+  if (TEAM_TAB_GIDS[name]) return fetchTabViaCsv(name).catch(function(){ return fetchTeamTabViaGviz(name); });
+  return viaGviz();
+}
+function fetchTabRetry(name, attempt){
+  return fetchTab(name).catch(function(err){
+    if (attempt >= 2) throw err;
+    return new Promise(function(r){ setTimeout(r, 900); })
+      .then(function(){ return fetchTabRetry(name, attempt + 1); });
+  });
+}
+/* Per-tab row cache: each tab's last good response is kept across cycles.
+   The previous cycle was all-or-nothing: if any one of the 19 tabs
+   exhausted its retries, the worker's promise rejected, Promise.all
+   rejected, the other tabs' fresh data was thrown away and the page sat
+   on the snapshot indefinitely with no visible error. Now a tab that
+   fails simply keeps its cached rows, and the board goes live as soon as
+   every tab has been fetched successfully at least once. */
+var tabCache = {};
+var earlyRetryPending = false;
+var refreshing = false;
+function refreshLive(){
+  if (refreshing) return Promise.resolve();
+  refreshing = true;
+  var fresh = 0;
+  var queue = TAB_NAMES.slice();
+  function worker(){
+    if (!queue.length) return Promise.resolve();
+    var n = queue.shift();
+    return fetchTabRetry(n, 0).then(function(rows){
+      tabCache[n] = rows; fresh++;
+    }, function(){
+      /* Fetch failed for this tab this cycle: keep its cached rows. */
+    }).then(worker);
+  }
+  var workers = [];
+  for (var i = 0; i < 4; i++) workers.push(worker());
+  return Promise.all(workers).then(function(){
+    var complete = TAB_NAMES.every(function(n){ return !!tabCache[n]; });
+    if (!complete) throw new Error('feed incomplete: some tabs not yet fetched');
+    if (!fresh && liveOK){ updateStatus(); return; }
+    var model = parseWorkbook(tabCache);
+    var total = model.categories.reduce(function(a, c){ return a + c.pools.length + c.kos.length; }, 0);
+    if (total < 100) throw new Error('feed parsed implausibly few matches');
+    var sig = JSON.stringify(model);
+    if (liveOK && sig === lastSig){
+      /* Nothing changed on the scoreboard since the last cycle: keep the
+         DOM exactly as it is, so a table manager's scroll position on the
+         shiaijo board (and everyone else's place) is never disturbed by
+         a no-change poll. */
+      lastLive = new Date();
+      updateStatus();
+      return;
+    }
+    lastSig = sig;
+    DATA = model;
+    liveOK = true;
+    lastLive = new Date();
+    /* Flip the status line to Live before rendering, and never let a
+       rendering exception be mistaken for a fetch failure. */
+    updateStatus();
+    try { renderAll(); } catch (e) { updateStatus(); }
+  }).catch(function(){
+    /* Keep whatever is on screen (live data if we ever got it, otherwise
+       the snapshot) and let the next cycle retry. If live has never
+       engaged, retry sooner than the 60s cycle so a transient first-cycle
+       failure recovers quickly instead of sitting on the snapshot. */
+    updateStatus();
+    if (!liveOK && !earlyRetryPending){
+      earlyRetryPending = true;
+      setTimeout(function(){ earlyRetryPending = false; refreshLive(); }, 20000);
+    }
+  }).then(function(){
+    refreshing = false;
+  });
+}
+
+/* ---------- wiring ---------- */
+document.querySelectorAll('.topnav button').forEach(function(b){
+  b.addEventListener('click', function(){ switchView(b.getAttribute('data-view')); });
+});
+document.getElementById('catChips').addEventListener('click', function(e){
+  var b = e.target.closest('[data-cat]');
+  if (!b) return;
+  curCat = b.getAttribute('data-cat');
+  var cat = catById(curCat);
+  curPhase = cat.noPools ? 'kos' : 'pools';
+  renderChips(); renderMatchList();
+});
+document.getElementById('treeChips').addEventListener('click', function(e){
+  var b = e.target.closest('[data-cat]');
+  if (!b) return;
+  treeCat = b.getAttribute('data-cat');
+  renderChips(); renderTree();
+  document.getElementById('treeScroll').scrollLeft = 0;
+});
+document.getElementById('sjBtnA').addEventListener('click', function(){ shCourt = 'A'; renderShiaijo(); updateStatus(); });
+document.getElementById('sjBtnB').addEventListener('click', function(){ shCourt = 'B'; renderShiaijo(); updateStatus(); });
+document.getElementById('sjList').addEventListener('click', function(e){
+  var b = e.target.closest('.sj-collapse-btn');
+  if (!b) return;
+  var key = b.getAttribute('data-collapse-key');
+  if (!key) return;
+  var nowCollapsed = !sjCollapsed[key];
+  if (nowCollapsed) sjCollapsed[key] = true; else delete sjCollapsed[key];
+  var art = b.closest('.sj-match');
+  if (art) art.classList.toggle('collapsed', nowCollapsed);
+  b.setAttribute('aria-expanded', String(!nowCollapsed));
+  b.setAttribute('aria-label', nowCollapsed ? 'Show player names' : 'Collapse player names into team name');
+  b.setAttribute('title', nowCollapsed ? 'Show player names' : 'Collapse player names');
+  b.textContent = nowCollapsed ? '▸' : '▾';
+});
+document.getElementById('sjChips').addEventListener('click', function(e){
+  var b = e.target.closest('[data-target]');
+  if (!b) return;
+  var el = document.getElementById(b.getAttribute('data-target'));
+  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+});
+document.getElementById('segPools').addEventListener('click', function(){ curPhase = 'pools'; renderMatchList(); });
+document.getElementById('segKos').addEventListener('click', function(){ curPhase = 'kos'; renderMatchList(); });
+document.getElementById('matchList').addEventListener('click', function(e){
+  var row = e.target.closest('.match-row');
+  if (!row) return;
+  openDetail(row.getAttribute('data-cat'), row.getAttribute('data-phase'), parseInt(row.getAttribute('data-idx'), 10));
+});
+document.getElementById('sheetBack').addEventListener('click', closeDetail);
+document.getElementById('sheetClose').addEventListener('click', closeDetail);
+document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeDetail(); });
+
+/* Guard the initial renders: even if one throws, the live cycle and its
+   interval must still be installed. */
+try { renderSchedule(); renderAll(); } catch (e) { try { updateStatus(); } catch (e2) {} }
+refreshLive();
+setInterval(refreshLive, 5000);
+/* Phones throttle timers in background tabs: refresh the moment a player
+   brings the page back to the front, so they never stare at stale data. */
+document.addEventListener('visibilitychange', function(){
+  if (!document.hidden) refreshLive();
+});
+window.addEventListener('focus', refreshLive);
+// ---- end app ----
+
+</script>
+</body>
+</html>
